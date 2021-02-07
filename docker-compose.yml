@@ -1,0 +1,13 @@
+version: "3"
+services:
+  node_react:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./:/usr/src/app
+    command: sh -c "yarn start"
+    # command: sh -c "cd portfolio-site && yarn start"
+    ports:
+      - "3000:3000"
+    stdin_open: true
