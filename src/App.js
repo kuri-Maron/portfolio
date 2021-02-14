@@ -3,11 +3,12 @@
 
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Container, Toolbar } from "@material-ui/core";
+import { AppBar, Toolbar, Box } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
+import Top from "./components/Top";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -21,11 +22,17 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+// const bgcColor = {
+//   // backgroundColor: "#ffff00",
+//   backgroundColor: "red",
+// };
+
 function App() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
+      {/* TODO: Appbarをコンポーネント抽出する */}
       <AppBar position="static">
         <Toolbar>
           <IconButton
@@ -43,9 +50,13 @@ function App() {
         </Toolbar>
       </AppBar>
 
-      <Container>
-        <p>Container!!!</p>
-      </Container>
+      {/* <Container style={bgcColor}> */}
+      {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
+      <Top />
+      <Box color="success.main" bgcolor="primary.secondary">
+        box!
+      </Box>
+      {/* </Container> */}
     </div>
   );
 }
