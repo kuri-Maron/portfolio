@@ -1,5 +1,5 @@
 // import logo from "./logo.svg";
-// import './App.css';
+import "./App.css";
 
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -9,10 +9,13 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from "@material-ui/icons/Menu";
 import Top from "./components/Top";
+import CssBaseline from "@material-ui/core/CssBaseline";
 
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
+    // fontFamily: "Roboto Mono",
+    fontFamily: "'Roboto Mono', monospace",
   },
   menuButton: {
     marginRight: theme.spacing(2),
@@ -32,6 +35,7 @@ function App() {
 
   return (
     <div className={classes.root}>
+      <CssBaseline />
       {/* TODO: Appbarをコンポーネント抽出する */}
       <AppBar position="static">
         <Toolbar>
