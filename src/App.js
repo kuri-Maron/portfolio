@@ -1,15 +1,11 @@
-// import logo from "./logo.svg";
 import "./App.css";
-
+import withRoot from "./modules/withRoot";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Box } from "@material-ui/core";
-import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
-import IconButton from "@material-ui/core/IconButton";
-import MenuIcon from "@material-ui/icons/Menu";
-import Top from "./components/Top";
-import CssBaseline from "@material-ui/core/CssBaseline";
+import { Box } from "@material-ui/core";
+import Top from "./modules/components/Top";
+import About from "./modules/components/About";
+import AppBar from "./modules/components/AppBar";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -17,52 +13,39 @@ const useStyles = makeStyles((theme) => ({
     // fontFamily: "Roboto Mono",
     fontFamily: "'Roboto Mono', monospace",
   },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },
 }));
-
-// const bgcColor = {
-//   // backgroundColor: "#ffff00",
-//   backgroundColor: "red",
-// };
 
 function App() {
   const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      <CssBaseline />
-      {/* TODO: Appbarをコンポーネント抽出する */}
-      <AppBar position="static">
-        <Toolbar>
-          <IconButton
-            edge="start"
-            className={classes.menuButton}
-            color="inherit"
-            aria-label="menu"
-          >
-            <MenuIcon />
-          </IconButton>
-          <Typography variant="h6" className={classes.title}>
-            News
-          </Typography>
-          <Button color="inherit">Login</Button>
-        </Toolbar>
-      </AppBar>
-
+      <AppBar />
       {/* <Container style={bgcColor}> */}
       {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
       <Top />
-      <Box color="success.main" bgcolor="primary.secondary">
+      {/* <Box color="primary" bgcolor="pink"> */}
+      <About />
+      <Box
+        id="tmpBox"
+        color="secondary.main"
+        bgcolor="warning.light"
+        height="1000px"
+      >
         box!
+      </Box>
+      <Box
+        id="tmpBox"
+        color="white"
+        bgcolor="info.light"
+        height="1000px"
+        my={3}
+      >
+        box2
       </Box>
       {/* </Container> */}
     </div>
   );
 }
 
-export default App;
+export default withRoot(App);

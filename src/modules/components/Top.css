@@ -1,5 +1,7 @@
 .top {
-  /* height: 100vh; */
+  padding-top: 65px;
+  box-sizing: content-box;
+
   height: calc(100vh - 65px);
   border: double;
   display: flex;
@@ -9,7 +11,9 @@
 
 @media screen and (min-width: 600px) {
   .top {
-    /* height: 100vh; */
+    padding-top: 70px;
+    box-sizing: content-box;
+
     height: calc(100vh - 70px);
     border: dashed;
   }

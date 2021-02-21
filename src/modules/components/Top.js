@@ -2,7 +2,7 @@ import { Box } from "@material-ui/core";
 import React from "react";
 import "./Top.css";
 
-const top = () => {
+const Top = () => {
   return (
     <Box className="top">
       {/* TODO: バウンディングのアニメーションを実装する */}
@@ -11,4 +11,4 @@ const top = () => {
   );
 };
 
-export default top;
+export default Top;
