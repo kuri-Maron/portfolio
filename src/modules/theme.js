@@ -13,13 +13,15 @@ const rawTheme = createMuiTheme({
       // main: "#ff3366",
       main: lightGreen[500],
     },
+    divider: "rgba(128, 128, 128, 0.7)",
   },
   typography: {
-    fontFamily: "'Roboto Mono', monospace, sans-serif",
-    fontSize: 12,
-    fontWeightLight: 300, // Work Sans
-    fontWeightRegular: 400, // Work Sans
-    fontWeightMedium: 700, // Roboto Condensed
+    fontFamily:
+      "'Roboto Mono', 'Yu Gothic', '游ゴシック', YuGothic, '游ゴシック体', monospace, sans-serif",
+    fontSize: 16,
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 700,
     fontFamilySecondary: "'Roboto Condensed', 'Work Sans', sans-serif",
   },
 });

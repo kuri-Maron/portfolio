@@ -10,8 +10,7 @@ import AppBar from "./modules/components/AppBar";
 const useStyles = makeStyles((theme) => ({
   root: {
     flexGrow: 1,
-    // fontFamily: "Roboto Mono",
-    fontFamily: "'Roboto Mono', monospace",
+    // fontFamily: "'Roboto Mono', monospace",
   },
 }));
 

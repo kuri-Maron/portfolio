@@ -19,6 +19,10 @@
   }
 }
 
-p {
+.top-text {
   font-size: 4vw;
 }
+
+/* p {
+  font-size: 4vw;
+} */

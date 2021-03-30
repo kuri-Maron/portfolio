@@ -6,7 +6,7 @@ const Top = () => {
   return (
     <Box className="top">
       {/* TODO: バウンディングのアニメーションを実装する */}
-      <p>Shun Kurihara's portfolio;</p>
+      <p className="top-text">Shun Kurihara's portfolio;</p>
     </Box>
   );
 };

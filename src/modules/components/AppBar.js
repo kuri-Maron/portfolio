@@ -14,6 +14,12 @@ const useStyles = makeStyles((theme) => ({
     // justifyContent: "space-around",
     justifyContent: "space-evenly",
   },
+
+  barText: {
+    [theme.breakpoints.down("xs")]: {
+      fontSize: 16,
+    },
+  },
 }));
 
 const CustomAppBar = () => {
@@ -22,19 +28,39 @@ const CustomAppBar = () => {
     // TODO: Linkの遷移で位置がずれるのに対策するなら、toolbarと同じスタイル(自分でスタイル上書きしたほうが簡単)の空のdivを入れる
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        <Link href="# " color="inherit" variant="h6">
+        {/* <Link href="# " color="inherit" variant="h6">
           Top
-        </Link>
-        <Link href="#about" color="secondary" variant="h6">
+        </Link> */}
+        <Link
+          href="#about"
+          color="secondary"
+          variant="h6"
+          className={classes.barText}
+        >
           About
         </Link>
-        <Link href="#tmpBox" color="inherit" variant="h6">
+        <Link
+          href="#tmpBox"
+          color="inherit"
+          variant="h6"
+          className={classes.barText}
+        >
           Works
         </Link>
-        <Link href="#tmpBox" color="inherit" variant="h6">
+        <Link
+          href="#tmpBox"
+          color="inherit"
+          variant="h6"
+          className={classes.barText}
+        >
           Skill
         </Link>
-        <Link href="#tmpBox" color="inherit" variant="h6">
+        <Link
+          href="#tmpBox"
+          color="inherit"
+          variant="h6"
+          className={classes.barText}
+        >
           Contact
         </Link>
       </Toolbar>
