@@ -21,13 +21,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "center",
   },
-  paper: {
-    color: "red",
-    backgroundColor: "green",
-
-    display: "inline-block",
-    // margin: 30,
-  },
   labelText: {
     fontWeight: "bold",
     // textDecoration: "underline white",
