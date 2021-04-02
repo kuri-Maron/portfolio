@@ -1,4 +1,4 @@
-import About from "./About";
+import About from "./About_old";
 import { Box } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
@@ -28,11 +28,16 @@ const useStyles = makeStyles((theme) => ({
 const Section = (props) => {
   const classes = useStyles();
   return (
-    <Box bgcolor="green">
-      aaa {props.sectionName}
-      {props.sampleComp()}
-      <p>zzz</p>
-      <p>{props.children}</p>
+    <Box
+      id={props.sectionName}
+      bgcolor="primary.main"
+      color="white"
+      className={classes.box}
+    >
+      <Typography variant="h3" className={classes.topic}>
+        {props.sectionName}
+      </Typography>
+      {props.children}
     </Box>
   );
 };

@@ -32,7 +32,7 @@ const CustomAppBar = () => {
           Top
         </Link> */}
         <Link
-          href="#about"
+          href="#About"
           color="secondary"
           variant="h6"
           className={classes.barText}

@@ -4,11 +4,10 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
 import Top from "./modules/components/Top";
-import About from "./modules/components/About";
 import Section from "./modules/components/Section";
 import AppBar from "./modules/components/AppBar";
-import { Component } from "react";
 
+import About from "./modules/components/About";
 import SampleComp from "./modules/SampleComp";
 
 const useStyles = makeStyles((theme) => ({
@@ -28,9 +27,8 @@ function App() {
       {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
       <Top />
       {/* <Box color="primary" bgcolor="pink"> */}
-      <About />
-      <Section sectionName="HOGE" sampleComp={SampleComp}>
-        bbbb
+      <Section sectionName="About">
+        <About />
       </Section>
       <Box
         id="tmpBox"
