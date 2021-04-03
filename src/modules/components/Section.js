@@ -1,16 +1,7 @@
-import About from "./About_old";
 import { Box } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import { Component } from "react";
-
-// 実装イメージ
-{
-  /* <S children={"About"}>
-    <About/>
-</S> */
-}
 
 const useStyles = makeStyles((theme) => ({
   box: {
@@ -30,8 +21,8 @@ const Section = (props) => {
   return (
     <Box
       id={props.sectionName}
-      bgcolor="primary.main"
-      color="white"
+      bgcolor={props.isBlack ? "primary.main" : ""}
+      color={props.isBlack ? "white" : ""}
       className={classes.box}
     >
       <Typography variant="h3" className={classes.topic}>

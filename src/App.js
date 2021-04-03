@@ -8,7 +8,6 @@ import Section from "./modules/components/Section";
 import AppBar from "./modules/components/AppBar";
 
 import About from "./modules/components/About";
-import SampleComp from "./modules/SampleComp";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -27,7 +26,7 @@ function App() {
       {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
       <Top />
       {/* <Box color="primary" bgcolor="pink"> */}
-      <Section sectionName="About">
+      <Section sectionName="About" isBlack>
         <About />
       </Section>
       <Box
