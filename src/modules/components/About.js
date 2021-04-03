@@ -45,7 +45,7 @@ const About = () => {
           <Typography variant="body1">SIer(SAP:ERPパッケージ)</Typography>
         </Grid>
       </Grid>
-      <Box width="95%" mt={5}>
+      <Box width="95%" mt={5} mx={1}>
         高校時代からプログラミングを学び始め、今はSIerとして働いています。
         モダンな環境での開発に憧れて転職活動中です。
         フロントエンド(Vue,React)やFirebase,AWS,

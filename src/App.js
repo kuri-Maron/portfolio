@@ -8,6 +8,7 @@ import Section from "./modules/components/Section";
 import AppBar from "./modules/components/AppBar";
 
 import About from "./modules/components/About";
+import Works from "./modules/components/Works";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -29,7 +30,9 @@ function App() {
       <Section sectionName="About" isBlack>
         <About />
       </Section>
-      <Section sectionName="Works">cardコンポーネントを列挙する。</Section>
+      <Section sectionName="Works">
+        <Works />
+      </Section>
       <Box
         id="tmpBox"
         color="secondary.main"
