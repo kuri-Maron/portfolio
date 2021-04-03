@@ -29,6 +29,7 @@ function App() {
       <Section sectionName="About" isBlack>
         <About />
       </Section>
+      <Section sectionName="Works">cardコンポーネントを列挙する。</Section>
       <Box
         id="tmpBox"
         color="secondary.main"

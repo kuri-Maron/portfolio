@@ -9,7 +9,8 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: "13vh",
   },
   topic: {
-    textDecoration: "underline white",
+    // textDecoration: "underline white",
+    textDecoration: "underline",
     marginBottom: "10vh",
     display: "flex",
     justifyContent: "center",
