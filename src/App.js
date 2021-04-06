@@ -3,12 +3,12 @@ import withRoot from "./modules/withRoot";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Box } from "@material-ui/core";
-import Top from "./modules/components/Top";
+import Top from "./modules/views/Top";
 import Section from "./modules/components/Section";
-import AppBar from "./modules/components/AppBar";
+import AppBar from "./modules/views/AppBar";
 
-import About from "./modules/components/About";
-import Works from "./modules/components/Works";
+import About from "./modules/views/About";
+import Works from "./modules/views/Works";
 
 const useStyles = makeStyles((theme) => ({
   root: {
