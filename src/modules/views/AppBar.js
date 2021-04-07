@@ -48,7 +48,7 @@ const CustomAppBar = () => {
           Works
         </Link>
         <Link
-          href="#tmpBox"
+          href="#Skill"
           color="inherit"
           variant="h6"
           className={classes.barText}

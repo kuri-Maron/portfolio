@@ -16,7 +16,6 @@ const Works = () => {
   // console.log(cardInfo.img);
   return (
     <Container maxWidth="lg">
-      <p>hoge</p>
       <Grid container spacing={3}>
         <Grid item xs={12} sm={6}>
           {" "}

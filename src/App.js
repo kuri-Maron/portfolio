@@ -9,6 +9,7 @@ import AppBar from "./modules/views/AppBar";
 
 import About from "./modules/views/About";
 import Works from "./modules/views/Works";
+import Skill from "./modules/views/Skill";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -32,6 +33,9 @@ function App() {
       </Section>
       <Section sectionName="Works">
         <Works />
+      </Section>
+      <Section sectionName="Skill" isBlack>
+        <Skill />
       </Section>
       <Box
         id="tmpBox"
