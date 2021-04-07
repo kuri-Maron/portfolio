@@ -15,15 +15,26 @@ const cardInfo = {
 const Works = () => {
   // console.log(cardInfo.img);
   return (
-    <Container maxWidth="sm">
+    <Container maxWidth="lg">
       <p>hoge</p>
-      <Grid container spacing={2}>
-        <CardApp
-          cardName={cardInfo.cardName}
-          text={cardInfo.text}
-          useTech={cardInfo.useTech}
-          imgPortfolioSite={cardInfo.img}
-        />
+      <Grid container spacing={3}>
+        <Grid item xs={12} sm={6}>
+          {" "}
+          <CardApp
+            cardName={cardInfo.cardName}
+            text={cardInfo.text}
+            useTech={cardInfo.useTech}
+            imgPortfolioSite={cardInfo.img}
+          />
+        </Grid>
+        <Grid item xs={12} sm={6}>
+          <CardApp
+            cardName={cardInfo.cardName}
+            text={cardInfo.text}
+            useTech={cardInfo.useTech}
+            imgPortfolioSite={cardInfo.img}
+          />
+        </Grid>
       </Grid>
     </Container>
   );

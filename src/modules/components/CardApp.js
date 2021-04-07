@@ -24,7 +24,7 @@ const CardApp = (props) => {
   console.log(props.imgPortfolioSite);
   return (
     <Card>
-      <CardActionArea>
+      <CardActionArea href="https://www.notion.so/with-React-de12ff2d00204347ace5bc15ab943c22">
         <CardMedia
           component="img"
           alt="サイトのイメージ画像"
@@ -55,6 +55,9 @@ const CardApp = (props) => {
           color="secondary"
           startIcon={<GitHubIcon />}
           className={classes.button}
+          href="https://github.com/kuri-Maron/portfolio"
+          target="_blank"
+          rel="noopener noreferrer"
         >
           GitHub
         </Button>
