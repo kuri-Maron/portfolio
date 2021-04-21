@@ -21,7 +21,6 @@ const useStyles = makeStyles((theme) => ({
 
 const CardApp = (props) => {
   const classes = useStyles();
-  console.log(props.imgPortfolioSite);
   return (
     <Card>
       <CardActionArea href="https://www.notion.so/with-React-de12ff2d00204347ace5bc15ab943c22">

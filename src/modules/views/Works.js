@@ -13,7 +13,6 @@ const cardInfo = {
 };
 
 const Works = () => {
-  // console.log(cardInfo.img);
   return (
     <Container maxWidth="lg">
       <Grid container spacing={3}>
