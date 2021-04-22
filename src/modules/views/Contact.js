@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, Snackbar, TextField } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
+import FormSnackbar from "../components/FormSackBar";
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -27,16 +28,21 @@ const Contact = () => {
     formState: { errors },
   } = useForm({ defaultValues });
 
+  // let open = false;
+  let openForm = useRef(false);
+
   const onSubmit = (date) => {
     console.log(date);
   };
 
   useEffect(() => {
     if (formState.isSubmitSuccessful) {
+      console.log("Before reset.");
       reset();
       console.log("run reset.");
+      openForm.current = true;
     }
-  }, [formState, reset]);
+  }, [formState, reset, openForm]);
 
   return (
     <Container maxWidth="sm" className={classes.root}>
@@ -166,6 +172,7 @@ const Contact = () => {
           送信
         </Button>
       </form>
+      <FormSnackbar openProps={openForm.current} />
     </Container>
   );
 };

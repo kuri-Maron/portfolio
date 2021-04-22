@@ -28,7 +28,6 @@ function App() {
       {/* <Container style={bgcColor}> */}
       {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
       <Top />
-      {/* <Box color="primary" bgcolor="pink"> */}
       <Section sectionName="About" isBlack>
         <About />
       </Section>

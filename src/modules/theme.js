@@ -14,6 +14,9 @@ const rawTheme = createMuiTheme({
       main: lightGreen[500],
     },
     divider: "rgba(128, 128, 128, 0.7)",
+    background: {
+      placeholder: grey[200],
+    },
   },
   typography: {
     fontFamily:
@@ -37,9 +40,6 @@ const theme = {
   ...rawTheme,
   palette: {
     ...rawTheme.palette,
-    background: {
-      placeholder: grey[200],
-    },
   },
   typography: {
     ...rawTheme.typography,
