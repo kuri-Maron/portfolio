@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, Snackbar, TextField } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
@@ -29,10 +29,15 @@ const Contact = () => {
   } = useForm({ defaultValues });
 
   // let open = false;
-  let openForm = useRef(false);
+  const openSnack = useRef(false);
+  // const [openForm, setOpenForm] = useState(false);
 
   const onSubmit = (date) => {
     console.log(date);
+  };
+
+  const handleClose = () => {
+    openSnack.current = false;
   };
 
   useEffect(() => {
@@ -40,9 +45,10 @@ const Contact = () => {
       console.log("Before reset.");
       reset();
       console.log("run reset.");
-      openForm.current = true;
+      // setOpenForm(true);
+      openSnack.current = true;
     }
-  }, [formState, reset, openForm]);
+  }, [formState, reset]);
 
   return (
     <Container maxWidth="sm" className={classes.root}>
@@ -172,7 +178,10 @@ const Contact = () => {
           送信
         </Button>
       </form>
-      <FormSnackbar openProps={openForm.current} />
+      <FormSnackbar
+        open={Boolean(openSnack.current)}
+        handleClose={handleClose}
+      />
     </Container>
   );
 };

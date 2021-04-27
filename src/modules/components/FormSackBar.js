@@ -4,32 +4,27 @@ import Snackbar from "@material-ui/core/Snackbar";
 import IconButton from "@material-ui/core/IconButton";
 import CloseIcon from "@material-ui/icons/Close";
 
-const FormSnackbar = (openProps) => {
-  const [open, setOpen] = useState(false);
+const FormSnackbar = (props) => {
+  // スネークバーの開閉state
+  const [open2, setOpen2] = useState(false);
+  // 初回レンダリングが完了済みかどうかフラグ
   const didMountRef = useRef(false);
-
-  //   const handleClick = () => {
-  //     setOpen(true);
-  //   };
 
   const handleClose = (event, reason) => {
     if (reason === "clickaway") {
       return;
     }
-
-    setOpen(false);
+    setOpen2(false);
+    props.handleClose(); //  親コンポーネントの開閉フラグをfalse
   };
 
   useEffect(() => {
     if (didMountRef.current) {
-      //   handleClick();
-      console.log("run Effect");
-      console.log(openProps);
-      setOpen(true);
+      setOpen2(props.open);
     } else {
       didMountRef.current = true;
     }
-  }, [openProps]);
+  }, [props.open]);
   return (
     <div>
       <Snackbar
@@ -37,7 +32,7 @@ const FormSnackbar = (openProps) => {
           vertical: "bottom",
           horizontal: "left",
         }}
-        open={open}
+        open={open2}
         autoHideDuration={6000}
         onClose={handleClose}
         message="送信完了しました。"
