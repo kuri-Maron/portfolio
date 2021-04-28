@@ -1,6 +1,6 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Container, Snackbar, TextField } from "@material-ui/core";
+import { Button, Container, TextField } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
 import FormSnackbar from "../components/FormSackBar";
 
@@ -13,40 +13,36 @@ const useStyle = makeStyles((theme) => ({
   },
 }));
 
+// フォームの初期値
 const defaultValues = { name: "", Email: "", contents: "" };
 
 const Contact = () => {
-  // const [openSnack, setOpenSnack] = React.useState(false);
   const classes = useStyle();
   const {
     control,
-    register,
     handleSubmit,
     reset,
-    watch,
     formState,
     formState: { errors },
   } = useForm({ defaultValues });
 
-  // let open = false;
-  const openSnack = useRef(false);
-  // const [openForm, setOpenForm] = useState(false);
+  // スナックバーの開閉フラグ
+  const [openSnackbar, setOpenSbackbar] = useState(false);
 
   const onSubmit = (date) => {
+    // TODO: メール送信APIを作成して、非同期通信処理を実装する。（テストもしたい）
     console.log(date);
   };
 
   const handleClose = () => {
-    openSnack.current = false;
+    setOpenSbackbar(false);
   };
 
   useEffect(() => {
+    // フォーム送信が成功したら、リセットしてスナックバー表示
     if (formState.isSubmitSuccessful) {
-      console.log("Before reset.");
       reset();
-      console.log("run reset.");
-      // setOpenForm(true);
-      openSnack.current = true;
+      setOpenSbackbar(true);
     }
   }, [formState, reset]);
 
@@ -178,10 +174,7 @@ const Contact = () => {
           送信
         </Button>
       </form>
-      <FormSnackbar
-        open={Boolean(openSnack.current)}
-        handleClose={handleClose}
-      />
+      <FormSnackbar open={Boolean(openSnackbar)} handleClose={handleClose} />
     </Container>
   );
 };
