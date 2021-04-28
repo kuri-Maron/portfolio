@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, TextField } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
-import FormSnackbar from "../components/FormSackbar";
+// import FormSnackbar from "../components/FormSackBar";
+import FormSnackbar from "../components/FormSnackbar";
 
 const useStyle = makeStyles((theme) => ({
   root: {
