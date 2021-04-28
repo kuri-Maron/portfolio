@@ -3,6 +3,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, TextField } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
 import FormSnackbar from "../components/FormSackBar";
+import { pink } from "@material-ui/core/colors";
 
 const useStyle = makeStyles((theme) => ({
   root: {
@@ -10,6 +11,10 @@ const useStyle = makeStyles((theme) => ({
       marginTop: theme.spacing(1),
       marginBottom: theme.spacing(1),
     },
+  },
+  submitButton: {
+    // color: theme.palette.getContrastText(theme.palette.secondary.main),
+    marginTop: theme.spacing(2),
   },
 }));
 
@@ -55,38 +60,6 @@ const Contact = () => {
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
-        {/* <input defaultValue="test" {...register("example")} />
-        <br />
-        <input {...register("exampleRequired", { required: true })} />
-        {errors.exampleRequired && <span>This field is required</span>}
-        <br /> */}
-
-        {/* <TextField
-          fullWidth
-          variant="filled"
-          label="名前"
-          inputRef={register("name2")}
-        /> */}
-
-        {/* <TextField
-          label="タイトル(必須)"
-          type="text"
-          fullWidth
-          margin="normal"
-          inputRef={register("title")}
-          error={Boolean(errors.title)}
-          helperText={errors.title && "タイトルは20文字以内にして下さい。"}
-        /> */}
-
-        {/* <Controller
-          render={({ field }) => (
-            <TextField {...field} fullWidth variant="filled" label="名前" />
-          )}
-          name="TextField"
-          control={control}
-          rules={{ required: true }}
-        /> */}
-
         <Controller
           render={({ field }) => (
             <TextField
@@ -149,28 +122,13 @@ const Contact = () => {
             },
           }}
         />
-
-        {/* <TextField
-          {...field}
-          fullWidth
-          variant="filled"
-          label="内容"
-          required
-          error={Boolean(errors.contents)}
-          helperText={errors.contents && errors.contents.message}
-        /> */}
-
-        {/* <Controller
-          rules={{ required: "必須だと" }}
-          render={({ field }) => {
-            return <input {...field} />;
-          }}
-          defaultValue={""}
-          control={control}
-          name="test"
-        /> */}
-
-        <Button type="submit" variant="outlined" color="secondary">
+        <Button
+          type="submit"
+          variant="contained"
+          color="secondary"
+          size="small"
+          className={classes.submitButton}
+        >
           送信
         </Button>
       </form>
