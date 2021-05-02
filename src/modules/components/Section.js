@@ -17,7 +17,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Section = (props) => {
+const Section = React.forwardRef((props, ref) => {
   const classes = useStyles();
   return (
     <Box
@@ -26,12 +26,12 @@ const Section = (props) => {
       color={props.isBlack ? "white" : ""}
       className={classes.box}
     >
-      <Typography variant="h3" className={classes.topic}>
+      <Typography variant="h3" className={classes.topic} ref={ref}>
         {props.sectionName}
       </Typography>
       {props.children}
     </Box>
   );
-};
+});
 
 export default Section;

@@ -1,7 +1,6 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Link } from "@material-ui/core";
-// import Typography from "@material-ui/core/Typography";
 import { lightGreen } from "@material-ui/core/colors";
 
 const useStyles = makeStyles((theme) => ({
@@ -22,8 +21,21 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const CustomAppBar = () => {
+const CustomAppBar = (props) => {
+  // let mainView = props.mainView;
+  // const [mainView, setMainView] = useState(props.mainView);
   const classes = useStyles();
+
+  const clickMainView = (viewName) => {
+    props.setMainView(viewName);
+  };
+
+  // const doDebug = (foo, arg) => {
+  //   console.log(`run code with arg: ${arg}`);
+  //   console.log(foo);
+  //   console.log(arg);
+  // };
+
   return (
     // TODO: Linkの遷移で位置がずれるのに対策するなら、toolbarと同じスタイル(自分でスタイル上書きしたほうが簡単)の空のdivを入れる
     <AppBar position="fixed" color="primary" className={classes.appBar}>
@@ -31,17 +43,24 @@ const CustomAppBar = () => {
         {/* <Link href="# " color="inherit" variant="h6">
           Top
         </Link> */}
-        <Link
+        {/* <Link
           href="#About"
-          color="secondary"
+          color={props.mainView === "About" ? "secondary" : "inherit"}
           variant="h6"
           className={classes.barText}
+        > */}
+        <Link
+          href="#About"
+          color={props.mainView === "About" ? "secondary" : "inherit"}
+          variant="h6"
+          className={classes.barText}
+          onClick={() => clickMainView("About")}
         >
           About
         </Link>
         <Link
           href="#Works"
-          color="inherit"
+          color={props.mainView === "Works" ? "secondary" : "inherit"}
           variant="h6"
           className={classes.barText}
         >
@@ -49,15 +68,15 @@ const CustomAppBar = () => {
         </Link>
         <Link
           href="#Skill"
-          color="inherit"
+          color={props.mainView === "Skill" ? "secondary" : "inherit"}
           variant="h6"
           className={classes.barText}
         >
           Skill
         </Link>
         <Link
-          href="#tmpBox"
-          color="inherit"
+          href="#Contact"
+          color={props.mainView === "Contact" ? "secondary" : "inherit"}
           variant="h6"
           className={classes.barText}
         >
