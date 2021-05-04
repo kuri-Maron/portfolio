@@ -5,7 +5,7 @@ import Typography from "@material-ui/core/Typography";
 
 const useStyles = makeStyles((theme) => ({
   box: {
-    paddingTop: "13vh",
+    paddingTop: "14vh",
     paddingBottom: "13vh",
   },
   topic: {
@@ -21,12 +21,13 @@ const Section = React.forwardRef((props, ref) => {
   const classes = useStyles();
   return (
     <Box
+      ref={ref}
       id={props.sectionName}
       bgcolor={props.isBlack ? "primary.main" : ""}
       color={props.isBlack ? "white" : ""}
       className={classes.box}
     >
-      <Typography variant="h3" className={classes.topic} ref={ref}>
+      <Typography variant="h3" className={classes.topic}>
         {props.sectionName}
       </Typography>
       {props.children}

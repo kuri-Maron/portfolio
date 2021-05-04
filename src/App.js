@@ -23,10 +23,9 @@ const useStyles = makeStyles((theme) => ({
 
 function App() {
   const doDebug = () => {
-    // console.log(entry);
     console.log(inViews);
     console.log(Object.keys(inViews));
-    console.log(Object.values(inViews));
+    // console.log(Object.values(inViews));
   };
   const classes = useStyles();
   // entry使って、比率判定できるかも。
@@ -34,65 +33,62 @@ function App() {
   const [refWorks, inWorksView] = useInView();
   const [refSkill, inSkillView] = useInView();
   const [refContact, inContactView] = useInView();
-  const [mainView, setMainView] = useState();
-  // const inViews = [inAboutView, inWorksView, inSkillView, inContactView];
-  const inViews = {
-    About: inAboutView,
-    Works: inWorksView,
-    Skill: inSkillView,
-    Contact: inContactView,
-  };
-
-  useEffect(() => {
-    if (
-      Object.values(inViews).filter((inView) => inView === true).length === 1
-    ) {
-      setMainView(
-        Object.keys(inViews).filter((key) => inViews[key] === true)[0]
-      );
-    }
-  }, [inViews]);
-
-  // const handleClickMainView = (viewName) => {
-  //   setMainView(viewName);
+  // const [mainView, setMainView] = useState();
+  const [inViews, setInViews] = useState([]);
+  // const inViews = {
+  //   About: inAboutView,
+  //   Works: inWorksView,
+  //   Skill: inSkillView,
+  //   Contact: inContactView,
   // };
 
-  // // ABout
   // useEffect(() => {
-  //   if (inAboutView === true) {
-  //     if (inViews.filter((inView) => inView === true).length < 2) {
-  //       setMainView("About");
-  //     }
+  //   if (
+  //     Object.values(inViews).filter((inView) => inView === true).length === 1
+  //   ) {
+  //     setMainView(
+  //       Object.keys(inViews).filter((key) => inViews[key] === true)[0]
+  //     );
   //   }
-  // }, [inAboutView]);
-  // // Works
-  // useEffect(() => {
-  //   if (inWorksView === true) {
-  //     if (inViews.filter((inView) => inView === true).length < 2) {
-  //       setMainView("Works");
-  //     }
-  //   }
-  // }, [inWorksView]);
-  // // Skill
-  // useEffect(() => {
-  //   if (inSkillView === true) {
-  //     if (inViews.filter((inView) => inView === true).length < 2) {
-  //       setMainView("Skill");
-  //     }
-  //   }
-  // }, [inSkillView]);
-  // // Contact
-  // useEffect(() => {
-  //   if (inContactView === true) {
-  //     if (inViews.filter((inView) => inView === true).length < 2) {
-  //       setMainView("Contact");
-  //     }
-  //   }
-  // }, [inContactView]);
+  // }, [inViews]);
+
+  const handleClickMainView = (viewName) => {
+    setInViews([viewName, ...inViews]);
+  };
+
+  const editInViews = (inView, viewName) => {
+    if (inView === true) {
+      setInViews([...inViews, viewName]);
+    } else {
+      // if (inViews.length > 1)
+      setInViews([...inViews].filter((inView) => inView !== viewName));
+    }
+  };
+
+  // About
+  useEffect(() => {
+    editInViews(inAboutView, "About");
+  }, [inAboutView]);
+
+  // Works
+  useEffect(() => {
+    editInViews(inWorksView, "Works");
+  }, [inWorksView]);
+
+  // Skill
+  useEffect(() => {
+    editInViews(inSkillView, "Skill");
+  }, [inSkillView]);
+
+  // Contact
+  useEffect(() => {
+    editInViews(inContactView, "Contact");
+  }, [inContactView]);
 
   return (
     <div className={classes.root}>
-      <AppBar mainView={mainView} setMainView={setMainView} />
+      {/* <AppBar mainView={inViews[inViews.length - 1]} /> */}
+      <AppBar mainView={inViews[0]} handleClickMainView={handleClickMainView} />
       {/* <Container style={bgcColor}> */}
       {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
       <Top />
