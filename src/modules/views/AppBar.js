@@ -1,7 +1,7 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 // import { AppBar, Toolbar, Link } from "@material-ui/core";
-import { AppBar, Toolbar } from "@material-ui/core";
+import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { lightGreen } from "@material-ui/core/colors";
 import { Link, animateScroll as scroll } from "react-scroll";
 
@@ -20,6 +20,13 @@ const useStyles = makeStyles((theme) => ({
     [theme.breakpoints.down("xs")]: {
       fontSize: 16,
     },
+    cursor: "pointer",
+    "&:hover": {
+      color: lightGreen[500],
+    },
+  },
+  active: {
+    color: lightGreen[500],
   },
 }));
 
@@ -42,44 +49,52 @@ const CustomAppBar = (props) => {
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
         <Link
-          activeClass="active"
+          activeClass={classes.active}
           to="About"
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
         >
-          About
+          <Typography variant="h6" className={classes.barText}>
+            About
+          </Typography>
         </Link>
         <Link
-          activeClass="active"
+          activeClass={classes.active}
           to="Works"
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
         >
-          Works
+          <Typography variant="h6" className={classes.barText}>
+            Works
+          </Typography>
         </Link>
         <Link
-          activeClass="active"
+          activeClass={classes.active}
           to="Skill"
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
         >
-          Skill
+          <Typography variant="h6" className={classes.barText}>
+            Skill
+          </Typography>
         </Link>
         <Link
-          activeClass="active"
+          activeClass={classes.active}
           to="Contact"
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
         >
-          Contact
+          <Typography variant="h6" className={classes.barText}>
+            Contact
+          </Typography>
         </Link>
 
         {/* <Link
