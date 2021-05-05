@@ -3,7 +3,6 @@
   box-sizing: content-box;
 
   height: calc(100vh - 65px);
-  border: double;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,17 +11,10 @@
 @media screen and (min-width: 600px) {
   .top {
     padding-top: 70px;
-    box-sizing: content-box;
-
     height: calc(100vh - 70px);
-    border: dashed;
   }
 }
 
 .top-text {
   font-size: 4vw;
 }
-
-/* p {
-  font-size: 4vw;
-} */

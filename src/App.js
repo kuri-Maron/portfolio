@@ -1,13 +1,11 @@
 import "./App.css";
 import withRoot from "./modules/withRoot";
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, Button } from "@material-ui/core";
+import { Box } from "@material-ui/core";
 import Top from "./modules/views/Top";
 import Section from "./modules/components/Section";
 import AppBar from "./modules/views/AppBar";
-
-import { useInView } from "react-intersection-observer";
 
 import About from "./modules/views/About";
 import Works from "./modules/views/Works";
@@ -22,92 +20,26 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function App() {
-  const doDebug = () => {
-    console.log(inViews);
-    console.log(Object.keys(inViews));
-    // console.log(Object.values(inViews));
-  };
   const classes = useStyles();
-  // entry使って、比率判定できるかも。
-  const [refAbout, inAboutView] = useInView();
-  const [refWorks, inWorksView] = useInView();
-  const [refSkill, inSkillView] = useInView();
-  const [refContact, inContactView] = useInView();
-  // const [mainView, setMainView] = useState();
-  const [inViews, setInViews] = useState([]);
-  // const inViews = {
-  //   About: inAboutView,
-  //   Works: inWorksView,
-  //   Skill: inSkillView,
-  //   Contact: inContactView,
-  // };
-
-  // useEffect(() => {
-  //   if (
-  //     Object.values(inViews).filter((inView) => inView === true).length === 1
-  //   ) {
-  //     setMainView(
-  //       Object.keys(inViews).filter((key) => inViews[key] === true)[0]
-  //     );
-  //   }
-  // }, [inViews]);
-
-  const handleClickMainView = (viewName) => {
-    setInViews([viewName, ...inViews]);
-  };
-
-  const editInViews = (inView, viewName) => {
-    if (inView === true) {
-      setInViews([...inViews, viewName]);
-    } else {
-      // if (inViews.length > 1)
-      setInViews([...inViews].filter((inView) => inView !== viewName));
-    }
-  };
-
-  // About
-  useEffect(() => {
-    editInViews(inAboutView, "About");
-  }, [inAboutView]);
-
-  // Works
-  useEffect(() => {
-    editInViews(inWorksView, "Works");
-  }, [inWorksView]);
-
-  // Skill
-  useEffect(() => {
-    editInViews(inSkillView, "Skill");
-  }, [inSkillView]);
-
-  // Contact
-  useEffect(() => {
-    editInViews(inContactView, "Contact");
-  }, [inContactView]);
-
   return (
     <div className={classes.root}>
-      {/* <AppBar mainView={inViews[inViews.length - 1]} /> */}
-      <AppBar mainView={inViews[0]} handleClickMainView={handleClickMainView} />
+      <AppBar />
       {/* <Container style={bgcColor}> */}
       {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
       <Top />
-      <Button onClick={doDebug}>debug</Button>
-      <Section sectionName="About" isBlack ref={refAbout}>
+      {/* TODO: HOCで実装したい */}
+      <Section sectionName="About" isBlack>
         <About />
       </Section>
-      <Button onClick={doDebug}>debug</Button>
-      <Section sectionName="Works" ref={refWorks}>
+      <Section sectionName="Works">
         <Works />
       </Section>
-      <Button onClick={doDebug}>debug</Button>
-      <Section sectionName="Skill" isBlack ref={refSkill}>
+      <Section sectionName="Skill" isBlack>
         <Skill />
       </Section>
-      <Section sectionName="Contact" ref={refContact}>
+      <Section sectionName="Contact">
         <Contact />
       </Section>
-      <Button onClick={doDebug}>debug</Button>
       <Box
         id="tmpBox"
         color="secondary.main"
@@ -115,15 +47,6 @@ function App() {
         height="1000px"
       >
         box!
-      </Box>
-      <Box
-        id="tmpBox"
-        color="white"
-        bgcolor="info.light"
-        height="1000px"
-        my={3}
-      >
-        box2
       </Box>
       {/* </Container> */}
     </div>

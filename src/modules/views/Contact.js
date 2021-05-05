@@ -125,7 +125,7 @@ const Contact = () => {
         <Button
           type="submit"
           variant="contained"
-          color="secondary"
+          color="primary"
           size="small"
           className={classes.submitButton}
         >
