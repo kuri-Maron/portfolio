@@ -1,7 +1,9 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { AppBar, Toolbar, Link } from "@material-ui/core";
+// import { AppBar, Toolbar, Link } from "@material-ui/core";
+import { AppBar, Toolbar } from "@material-ui/core";
 import { lightGreen } from "@material-ui/core/colors";
+import { Link, animateScroll as scroll } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
@@ -39,16 +41,48 @@ const CustomAppBar = (props) => {
     // TODO: Linkの遷移で位置がずれるのに対策するなら、toolbarと同じスタイル(自分でスタイル上書きしたほうが簡単)の空のdivを入れる
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
-        {/* <Link href="# " color="inherit" variant="h6">
-          Top
-        </Link> */}
-        {/* <Link
-          href="#About"
-          color={props.mainView === "About" ? "secondary" : "inherit"}
-          variant="h6"
-          className={classes.barText}
-        > */}
         <Link
+          activeClass="active"
+          to="About"
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+        >
+          About
+        </Link>
+        <Link
+          activeClass="active"
+          to="Works"
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+        >
+          Works
+        </Link>
+        <Link
+          activeClass="active"
+          to="Skill"
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+        >
+          Skill
+        </Link>
+        <Link
+          activeClass="active"
+          to="Contact"
+          spy={true}
+          smooth={true}
+          offset={-50}
+          duration={500}
+        >
+          Contact
+        </Link>
+
+        {/* <Link
           href="#About"
           color={props.mainView === "About" ? "secondary" : "inherit"}
           variant="h6"
@@ -83,7 +117,7 @@ const CustomAppBar = (props) => {
           onClick={() => props.handleClickMainView("Contact")}
         >
           Contact
-        </Link>
+        </Link> */}
       </Toolbar>
     </AppBar>
   );
