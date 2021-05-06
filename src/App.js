@@ -2,10 +2,11 @@ import "./App.css";
 import withRoot from "./modules/withRoot";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box } from "@material-ui/core";
+import { Box, Hidden } from "@material-ui/core";
 import Top from "./modules/views/Top";
 import Section from "./modules/components/Section";
 import AppBar from "./modules/views/AppBar";
+import BottomNavigation from "./modules/views/BottomNav";
 
 import About from "./modules/views/About";
 import Works from "./modules/views/Works";
@@ -23,7 +24,12 @@ function App() {
   const classes = useStyles();
   return (
     <div className={classes.root}>
-      <AppBar />
+      <Hidden smDown>
+        <AppBar />
+      </Hidden>
+      <Hidden mdUp>
+        <BottomNavigation />
+      </Hidden>
       {/* <Container style={bgcColor}> */}
       {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
       <Top />

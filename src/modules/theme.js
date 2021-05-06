@@ -1,16 +1,12 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { lightGreen, grey } from "@material-ui/core/colors";
-// import { green, grey, red } from "@material-ui/core/colors";
-// import { green, red } from "@material-ui/core/colors";
 
 const rawTheme = createMuiTheme({
   palette: {
     primary: {
-      // main: "#757575",
       main: grey[900],
     },
     secondary: {
-      // main: "#ff3366",
       main: lightGreen[500],
     },
     divider: "rgba(128, 128, 128, 0.7)",
@@ -29,22 +25,17 @@ const rawTheme = createMuiTheme({
   },
 });
 
-// const fontHeader = {
-//   color: rawTheme.palette.text.primary,
-//   fontWeight: rawTheme.typography.fontWeightMedium,
-//   fontFamily: rawTheme.typography.fontFamilySecondary,
-//   textTransform: "uppercase",
+export default responsiveFontSizes(rawTheme);
+
+// const theme = {
+//   ...rawTheme,
+//   palette: {
+//     ...rawTheme.palette,
+//   },
+//   typography: {
+//     ...rawTheme.typography,
+//     // fontHeader,
+//   },
 // };
 
-const theme = {
-  ...rawTheme,
-  palette: {
-    ...rawTheme.palette,
-  },
-  typography: {
-    ...rawTheme.typography,
-    // fontHeader,
-  },
-};
-
-export default responsiveFontSizes(theme);
+// export default responsiveFontSizes(theme);

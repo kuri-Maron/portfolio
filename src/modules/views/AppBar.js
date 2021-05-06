@@ -1,13 +1,13 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
-import { lightGreen } from "@material-ui/core/colors";
 import { Link } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     borderBottom: "solid",
-    borderBottomColor: lightGreen[500],
+    borderBottomColor: theme.palette.secondary.main,
+    // borderBottomColor: lightGreen[500],
   },
   toolbar: {
     // justifyContent: "space-between",
@@ -21,11 +21,11 @@ const useStyles = makeStyles((theme) => ({
     },
     cursor: "pointer",
     "&:hover": {
-      color: lightGreen[500],
+      color: theme.palette.secondary.main,
     },
   },
   active: {
-    color: lightGreen[500],
+    color: theme.palette.secondary.main,
   },
 }));
 
