@@ -3,8 +3,12 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import "./Top.css";
 
+import imgBlackCat from "../../assets/blackCat_noneTail.png";
+import imgBlackCatTail from "../../assets/blackCat_tail.png";
+
 const useStyle = makeStyles((theme) => ({
   top: {
+    position: "relative",
     boxSizing: "content-box",
     height: "calc(100vh - 50px)",
     display: "flex",
@@ -25,6 +29,19 @@ const useStyle = makeStyles((theme) => ({
     "50%": { transform: "scale(1)" },
     "90%": { top: 0, transform: "translateY(0) scale(1.05,0.8)" },
   },
+  catBox: {
+    position: "absolute",
+    right: "10vw",
+    bottom: "5vh",
+  },
+  blackCat: {
+    position: "absolute",
+  },
+  blackCatTail: {
+    position: "absolute",
+    left: "50%",
+    bottom: "20%",
+  },
 }));
 
 const Top = () => {
@@ -35,6 +52,26 @@ const Top = () => {
       <Slide direction="down" in={true} timeout={1000}>
         <p className={classes.topText}>Shun Kurihara's portfolio;</p>
       </Slide>
+      <Box
+        height="100px"
+        width="100px"
+        bgcolor="pink"
+        className={classes.catBox}
+      >
+        <img
+          src={imgBlackCat}
+          alt="black cat"
+          height="100%"
+          width="100%"
+          className={classes.blackCat}
+        />
+        <img
+          src={imgBlackCatTail}
+          alt="black cat tail"
+          width="50%"
+          className={classes.blackCatTail}
+        />
+      </Box>
     </Box>
   );
 };
