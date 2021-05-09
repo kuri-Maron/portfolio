@@ -4,7 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import "./Top.css";
 
 import imgBlackCat from "../../assets/blackCat_noneTail.png";
-import imgBlackCatTail from "../../assets/blackCat_tail.png";
+import { Stage } from "@inlet/react-pixi";
+import CatTail from "../components/CatTail";
 
 const useStyle = makeStyles((theme) => ({
   top: {
@@ -39,8 +40,11 @@ const useStyle = makeStyles((theme) => ({
   },
   blackCatTail: {
     position: "absolute",
-    left: "50%",
-    bottom: "20%",
+    left: "51%",
+    top: "50%",
+    // bottom: "5%",
+    // opacity: "0",
+    // backgroundColor: "transparent",
   },
 }));
 
@@ -52,10 +56,17 @@ const Top = () => {
       <Slide direction="down" in={true} timeout={1000}>
         <p className={classes.topText}>Shun Kurihara's portfolio;</p>
       </Slide>
+      {/* <Stage
+        width={200}
+        height={100}
+        options={{ autoDensity: true, backgroundColor: 0xffffcc }}
+      >
+        <CatTail />
+      </Stage> */}
       <Box
         height="100px"
         width="100px"
-        bgcolor="pink"
+        // bgcolor="pink"
         className={classes.catBox}
       >
         <img
@@ -65,12 +76,22 @@ const Top = () => {
           width="100%"
           className={classes.blackCat}
         />
-        <img
+        <Stage
+          width={100}
+          height={50}
+          // options={{ autoDensity: true, backgroundColor: 0xfff }}
+          // options={{ autoDensity: true, backgroundColor: 0xffffcc }}
+          options={{ autoDensity: true, backgroundAlpha: 0 }}
+          className={classes.blackCatTail}
+        >
+          <CatTail />
+        </Stage>
+        {/* <img
           src={imgBlackCatTail}
           alt="black cat tail"
           width="50%"
           className={classes.blackCatTail}
-        />
+        /> */}
       </Box>
     </Box>
   );
