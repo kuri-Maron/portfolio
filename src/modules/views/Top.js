@@ -1,7 +1,7 @@
 import { Box, Slide } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import "./Top.css";
+// import "./Top.css";
 
 import imgBlackCat from "../../assets/blackCat_noneTail.png";
 import { Stage } from "@inlet/react-pixi";
@@ -35,16 +35,10 @@ const useStyle = makeStyles((theme) => ({
     right: "10vw",
     bottom: "5vh",
   },
-  blackCat: {
-    position: "absolute",
-  },
   blackCatTail: {
     position: "absolute",
     left: "51%",
     top: "50%",
-    // bottom: "5%",
-    // opacity: "0",
-    // backgroundColor: "transparent",
   },
 }));
 
@@ -52,46 +46,19 @@ const Top = () => {
   const classes = useStyle();
   return (
     <Box className={classes.top}>
-      {/* TODO: バウンディングのアニメーションを実装する */}
       <Slide direction="down" in={true} timeout={1000}>
-        <p className={classes.topText}>Shun Kurihara's portfolio;</p>
+        <p className={classes.topText}>Shun Kurihara's portfolio</p>
       </Slide>
-      {/* <Stage
-        width={200}
-        height={100}
-        options={{ autoDensity: true, backgroundColor: 0xffffcc }}
-      >
-        <CatTail />
-      </Stage> */}
-      <Box
-        height="100px"
-        width="100px"
-        // bgcolor="pink"
-        className={classes.catBox}
-      >
-        <img
-          src={imgBlackCat}
-          alt="black cat"
-          height="100%"
-          width="100%"
-          className={classes.blackCat}
-        />
+      <Box height="100px" width="100px" className={classes.catBox}>
+        <img src={imgBlackCat} alt="black cat" height="100%" width="100%" />
         <Stage
           width={100}
           height={50}
-          // options={{ autoDensity: true, backgroundColor: 0xfff }}
-          // options={{ autoDensity: true, backgroundColor: 0xffffcc }}
           options={{ autoDensity: true, backgroundAlpha: 0 }}
           className={classes.blackCatTail}
         >
           <CatTail />
         </Stage>
-        {/* <img
-          src={imgBlackCatTail}
-          alt="black cat tail"
-          width="50%"
-          className={classes.blackCatTail}
-        /> */}
       </Box>
     </Box>
   );

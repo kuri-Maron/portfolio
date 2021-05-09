@@ -2,7 +2,6 @@ import React, { useState, useMemo, useRef } from "react";
 import { SimpleRope, useTick } from "@inlet/react-pixi";
 import { Point } from "@pixi/math";
 import imgBlackCatTail from "../../assets/blackCat_tail2.png";
-// import { SimpleRope, Graphics, Container, useTick } from "@inlet/react-pixi";
 
 const height = 50;
 const ropeLength = 18;
@@ -16,7 +15,6 @@ const Tail = () => {
     return points;
   }, []);
 
-  // const [showPoints, setShowPoints] = useState(true);
   const [points, setPoints] = useState(initialPoints);
 
   useTick((delta) => {
@@ -32,10 +30,6 @@ const Tail = () => {
   });
 
   return (
-    // <Container
-    //   interactive={true}
-    // pointerdown={() => setShowPoints((show) => !show)}
-    // >
     <SimpleRope
       image={imgBlackCatTail}
       points={points}
@@ -43,34 +37,7 @@ const Tail = () => {
       x={5}
       y={height / 2}
     />
-    //    {showPoints && <TailPoints points={points} />}
-    // </Container>
   );
 };
 
 export default Tail;
-
-// const TailPoints = ({ points }) => {
-//   return (
-//     <Graphics
-//       x={0}
-//       y={height / 2}
-//       scale={0.4}
-//       draw={(g) => {
-//         g.clear();
-//         g.lineStyle(2, 0xffc2c2);
-//         g.moveTo(points[0].x, points[0].y);
-
-//         for (let i = 1; i < points.length; i++) {
-//           g.lineTo(points[i].x, points[i].y);
-//         }
-
-//         for (let i = 1; i < points.length; i++) {
-//           g.beginFill(0xff0022);
-//           g.drawCircle(points[i].x, points[i].y, 10);
-//           g.endFill();
-//         }
-//       }}
-//     />
-//   );
-// };
