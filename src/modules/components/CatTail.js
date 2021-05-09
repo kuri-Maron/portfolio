@@ -1,9 +1,8 @@
 import React, { useState, useMemo, useRef } from "react";
-import { SimpleRope, Container, useTick } from "@inlet/react-pixi";
+import { SimpleRope, useTick } from "@inlet/react-pixi";
 import { Point } from "@pixi/math";
-// import { SimpleRope, Graphics, Container, useTick } from "@inlet/react-pixi";
-
 import imgBlackCatTail from "../../assets/blackCat_tail2.png";
+// import { SimpleRope, Graphics, Container, useTick } from "@inlet/react-pixi";
 
 const height = 50;
 const ropeLength = 18;
@@ -13,7 +12,7 @@ const Tail = () => {
 
   const initialPoints = useMemo(() => {
     const points = [];
-    for (let i = 0; i < 10; i++) points.push(new Point(i * ropeLength, 0));
+    for (let k = 0; k < 10; k++) points.push(new Point(k * ropeLength, 0));
     return points;
   }, []);
 
@@ -26,7 +25,7 @@ const Tail = () => {
 
     for (let j = 0; j < np.length; j++) {
       np[j].x = j * ropeLength + Math.cos(j * 0.3 + iter) * 20;
-      np[j].y = Math.sin(j * 0.5 + iter) * 30;
+      np[j].y = Math.sin(j * 0.4 + iter) * 25;
     }
 
     setPoints(np);
