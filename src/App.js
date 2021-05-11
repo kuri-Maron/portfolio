@@ -46,14 +46,6 @@ function App() {
       <Section sectionName="Contact">
         <Contact />
       </Section>
-      <Box
-        id="tmpBox"
-        color="secondary.main"
-        bgcolor="warning.light"
-        height="1000px"
-      >
-        box!
-      </Box>
       {/* </Container> */}
     </div>
   );
