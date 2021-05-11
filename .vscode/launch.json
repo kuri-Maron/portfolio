@@ -1,0 +1,57 @@
+{
+    // IntelliSense を使用して利用可能な属性を学べます。
+    // 既存の属性の説明をホバーして表示します。
+    // 詳細情報は次を確認してください: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Launch Chrome1",
+            "request": "launch",
+            "type": "pwa-chrome",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "type": "chrome",
+            "request": "launch",
+            "name": "Launch Chrome2",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}"
+        },
+        {
+            "name": "Attach to Chrome",
+            "port": 3000,
+            "request": "attach",
+            "type": "pwa-chrome",
+            "webRoot": "${workspaceFolder}"
+        },
+
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "Launch Chrome against localhost",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}"
+      },
+      {
+        "name": "Chrome",
+        "type": "chrome",
+        "request": "launch",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}",
+        "sourceMapPathOverrides": {
+          "webpack:///./src/*": "${webRoot}/*"
+        }
+      },
+      {
+        "type": "chrome",
+        "request": "launch",
+        "name": "test1 chrome react",
+        "url": "http://localhost:3000",
+        "webRoot": "${workspaceFolder}",
+        "sourceMapPathOverrides": {
+            "webpack:///./*": "${webRoot}/*"
+            }
+      },
+    ]
+}

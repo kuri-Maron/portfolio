@@ -1,0 +1,28 @@
+Script started on Sat Apr 24 11:35:59 2021
+]0;~/Develop/React/portfolio
+[0m[27m[24m[J[34m~/Develop/React/portfolio[39m
+
+[35m❯[39m [K[?1h=
+
+[A[0m[27m[24m[J[34m~/Develop/React/portfolio[39m
+
+[35m❯[39m [K[?2004h
+
+[A[0m[27m[24m[J[34m~/Develop/React/portfolio[39m [38;5;242mfeature-ContactPage[38;5;218m[39m
+
+[35m❯[39m [K
+
+[A[0m[27m[24m[J[34m~/Develop/React/portfolio[39m [38;5;242mfeature-ContactPage[38;5;218m*[39m
+
+[35m�[1m[31ma[0m[39m[90mmplify help[39m[11D[0m[32ma[32ms[39m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [10D[1m[31ma[1m[31ms[1m[31md[0m[39m[1m[31md[1m[31mf[0m[39m[1m[31md[0m[39m[0m[39m [0m[32ma[0m[32ms[39m[0m[39m [1m[31ma[0m[39m[90mm[90mplify help[39m[11D[0m[39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [39m [12D[32ml[39m[90ms[39m[32ml[32ms[39m[?1l>[?2004l[A[0m[27m[24m[J[34m~/Develop/React/portfolio[39m [38;5;242mfeature-ContactPage[38;5;218m*[39m
+[35m❯[39m [32mls[39m[K
+]0;portfolio: ls -GDockerfile         [34mnode_modules[39;49m[0m       [34mpublic[39;49m[0m             yarn.lock
+README.md          package-lock.json  [34msrc[39;49m[0m
+docker-compose.yml package.json       typescript
+]0;~/Develop/React/portfolio
+[0m[27m[24m[J[34m~/Develop/React/portfolio[39m [38;5;242mfeature-ContactPage[38;5;218m*[39m
+[35m❯[39m [K[?1h=[A[0m[27m[24m[J[34m~/Develop/React/portfolio[39m [38;5;242mfeature-ContactPage[38;5;218m*[39m
+[35m❯[39m [K[?2004h[1m[31me[0m[39m[90mxit[39m[0m[32me[32mx[39m[1m[31me[1m[31mx[1m[31mi[0m[39m[0m[32me[0m[32mx[0m[32mi[32mt[39m[?1l>[?2004l[A[0m[27m[24m[J[34m~/Develop/React/portfolio[39m [38;5;242mfeature-ContactPage[38;5;218m*[39m
+[35m❯[39m [32mexit[39m[K
+]0;portfolio: exit
+Script done on Sat Apr 24 11:38:42 2021
