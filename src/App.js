@@ -2,7 +2,7 @@ import "./App.css";
 import withRoot from "./modules/withRoot";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Box, Hidden } from "@material-ui/core";
+import { Hidden } from "@material-ui/core";
 import Top from "./modules/views/Top";
 import Section from "./modules/components/Section";
 import AppBar from "./modules/views/AppBar";
