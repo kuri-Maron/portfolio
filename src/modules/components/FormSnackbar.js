@@ -9,7 +9,6 @@ const FormSnackbar = (props) => {
       return;
     }
     props.handleClose(); //  親コンポーネントの開閉フラグをfalse
-    console.log("スナックバーを閉じる");
   };
 
   return (
@@ -22,7 +21,7 @@ const FormSnackbar = (props) => {
         open={props.open}
         autoHideDuration={6000}
         onClose={handleClose}
-        message="送信完了しました。"
+        message={props.message}
         action={
           <React.Fragment>
             <IconButton
