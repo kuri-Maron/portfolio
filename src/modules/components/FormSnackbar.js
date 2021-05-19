@@ -9,6 +9,7 @@ const FormSnackbar = (props) => {
       return;
     }
     props.handleClose(); //  親コンポーネントの開閉フラグをfalse
+    console.log("スナックバーを閉じる");
   };
 
   return (

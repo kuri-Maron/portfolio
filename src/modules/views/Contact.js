@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Button, Container, TextField } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
@@ -19,7 +19,7 @@ const useStyle = makeStyles((theme) => ({
 }));
 
 // フォームの初期値
-const defaultValues = { name: "", Email: "", contents: "" };
+const defaultValues = { name: "", email: "", contents: "" };
 
 const Contact = () => {
   const classes = useStyle();
@@ -33,26 +33,63 @@ const Contact = () => {
 
   // スナックバーの開閉フラグ
   const [openSnackbar, setOpenSbackbar] = useState(false);
-
-  const onSubmit = (date) => {
+  // const isResponseSuccessful = useRef(false);
+  const [isResponseSuccessful, setIsResponseSuccessful] = useState(false);
+  const onSubmit = async (data) => {
     // TODO: メール送信APIを作成して、非同期通信処理を実装する。（テストもしたい）
-    console.log(date);
+    console.log(data);
+    console.log(JSON.stringify(data));
+    const response = await fetch(
+      "https://nfmtngds29.execute-api.ap-northeast-1.amazonaws.com/dev",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+      }
+    );
+    console.log(response);
+    console.log("api通信完了");
+    if (response.ok) setIsResponseSuccessful(true);
+    else alert("メール送信に失敗しました。");
   };
 
   const handleClose = () => {
     setOpenSbackbar(false);
+    console.log("2スナックバーを閉じる");
   };
 
   useEffect(() => {
+    console.log("メインEffect起動");
     // フォーム送信が成功したら、リセットしてスナックバー表示
-    if (formState.isSubmitSuccessful) {
-      reset();
+    if (formState.isSubmitSuccessful && isResponseSuccessful) {
+      // console.log(isResponseSuccessful);
       setOpenSbackbar(true);
+      reset();
+      // if (isResponseSuccessful) {
+      // }
     }
   }, [formState, reset]);
+  // }, [formState]);
+
+  // useEffect(() => {
+  //   console.log("formStateが変化したかも。");
+  //   console.log(formState.isSubmitSuccessful);
+  //   if (formState.isSubmitSuccessful) console.log("true時のみ");
+  //   // setOpenSbackbar(true);
+  // }, [formState]);
 
   return (
     <Container maxWidth="sm" className={classes.root}>
+      <p>{openSnackbar ? "true" : "false"} aaaa</p>
+      <Button
+        onClick={() => {
+          setOpenSbackbar((bool) => !bool);
+        }}
+      >
+        スナックバーの開閉
+      </Button>
+      <Button onClick={() => console.error("エラー出てますよ！")}>
+        エラーログ出力
+      </Button>
       <p>
         何かありましたら、ご気軽にご連絡ください。
         <br />
@@ -90,11 +127,11 @@ const Contact = () => {
               fullWidth
               variant="filled"
               label="E-mail *"
-              error={Boolean(errors.Email)}
-              helperText={errors.Email && errors.Email.message}
+              error={Boolean(errors.email)}
+              helperText={errors.email && errors.email.message}
             />
           )}
-          name="Email"
+          name="email"
           control={control}
           rules={{ required: "必須入力です。" }}
         />
@@ -132,7 +169,15 @@ const Contact = () => {
           送信
         </Button>
       </form>
-      <FormSnackbar open={Boolean(openSnackbar)} handleClose={handleClose} />
+      <FormSnackbar
+        open={Boolean(openSnackbar)}
+        handleClose={handleClose}
+        message={
+          isResponseSuccessful.current
+            ? "送信完了しました。"
+            : "送信が失敗しました。"
+        }
+      />
     </Container>
   );
 };
