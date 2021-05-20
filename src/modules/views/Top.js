@@ -22,7 +22,7 @@ const useStyle = makeStyles((theme) => ({
   },
   topText: {
     fontSize: "4vw",
-    animation: `$bound 0.8s 1s 1.5`,
+    animation: `$bound 0.8s 5s 1.5`,
   },
   "@keyframes bound": {
     "0%,100%": { transform: "translateY(0) scale(1)" },
@@ -46,9 +46,9 @@ const Top = () => {
   const classes = useStyle();
   return (
     <Box className={classes.top}>
-      {/* <Slide direction="down" in={true} timeout={1000}> */}
-      <p className={classes.topText}>Shun Kurihara's portfolio</p>
-      {/* </Slide> */}
+      <Slide direction="down" in={true} timeout={1000}>
+        <p className={classes.topText}>Shun Kurihara's portfolio</p>
+      </Slide>
       <Box height="100px" width="100px" className={classes.catBox}>
         <img src={imgBlackCat} alt="black cat" height="100%" width="100%" />
         <Stage
