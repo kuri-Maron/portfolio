@@ -22,7 +22,7 @@ const useStyle = makeStyles((theme) => ({
   },
   topText: {
     fontSize: "4vw",
-    animation: `$bound 0.8s 5s 1.5`,
+    animation: `$bound 0.8s 1100ms 1.5`,
   },
   "@keyframes bound": {
     "0%,100%": { transform: "translateY(0) scale(1)" },
