@@ -9,6 +9,9 @@ import CatTail from "../components/CatTail";
 
 const useStyle = makeStyles((theme) => ({
   top: {
+    backgroundColor: "yellow",
+    flexWrap: "wrap",
+
     position: "relative",
     boxSizing: "content-box",
     height: "calc(100vh - 50px)",
@@ -43,12 +46,17 @@ const useStyle = makeStyles((theme) => ({
     left: "51%",
     top: "50%",
   },
+  widthValue: {
+    // width: "300px",
+    width: "100%",
+  },
 }));
 
 const Top = () => {
   const classes = useStyle();
   return (
     <Box className={classes.top}>
+      <p className={classes.widthValue}>{window.innerHeight}</p>
       <Slide direction="down" in={true} timeout={1000}>
         <p className={classes.topText}>Shun Kurihara's portfolio</p>
       </Slide>
@@ -57,7 +65,8 @@ const Top = () => {
         <Stage
           width={100}
           height={50}
-          options={{ autoDensity: true, backgroundAlpha: 0 }}
+          // options={{ autoDensity: true, backgroundAlpha: 0 }}
+          options={{ autoDensity: true }}
           className={classes.blackCatTail}
         >
           <CatTail />
