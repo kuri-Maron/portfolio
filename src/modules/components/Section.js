@@ -33,11 +33,9 @@ const Section = React.forwardRef((props, ref) => {
       color={props.isBlack ? "white" : ""}
       className={classes.box}
     >
-      <Box width="100%">
-        <Typography variant="h3" className={classes.topic}>
-          {props.sectionName}
-        </Typography>
-      </Box>
+      <Typography variant="h3" className={classes.topic}>
+        {props.sectionName}
+      </Typography>
       {props.children}
     </Box>
   );
