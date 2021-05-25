@@ -33,8 +33,10 @@ const useStyle = makeStyles((theme) => ({
   catBox: {
     position: "absolute",
     // right: "10vw",
-    right: "150px",
+    // right: "150px",
+    right: "25%",
     bottom: "5vh",
+    backgroundColor: "pink",
   },
   blackCatTail: {
     position: "absolute",
