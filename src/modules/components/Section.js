@@ -7,11 +7,17 @@ const useStyles = makeStyles((theme) => ({
   box: {
     paddingTop: "14vh",
     paddingBottom: "13vh",
+    minHeight: "550px",
+    // minHeight: "100vh",
+    // display: "flex",
+    // alignItems: "center",
+    // flexWrap: "wrap",
   },
   topic: {
     // textDecoration: "underline white",
     textDecoration: "underline",
-    marginBottom: "10vh",
+    // marginBottom: "10px",
+    paddingBottom: "60px",
     display: "flex",
     justifyContent: "center",
   },
@@ -27,9 +33,11 @@ const Section = React.forwardRef((props, ref) => {
       color={props.isBlack ? "white" : ""}
       className={classes.box}
     >
-      <Typography variant="h3" className={classes.topic}>
-        {props.sectionName}
-      </Typography>
+      <Box width="100%">
+        <Typography variant="h3" className={classes.topic}>
+          {props.sectionName}
+        </Typography>
+      </Box>
       {props.children}
     </Box>
   );
