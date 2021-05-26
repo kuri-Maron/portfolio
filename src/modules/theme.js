@@ -1,5 +1,5 @@
 import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
-import { lightGreen, grey } from "@material-ui/core/colors";
+import { green, grey } from "@material-ui/core/colors";
 
 const rawTheme = createMuiTheme({
   palette: {
@@ -7,7 +7,8 @@ const rawTheme = createMuiTheme({
       main: grey[900],
     },
     secondary: {
-      main: lightGreen[500],
+      // main: lightGreen[500],
+      main: green[800],
     },
     divider: "rgba(128, 128, 128, 0.7)",
     background: {

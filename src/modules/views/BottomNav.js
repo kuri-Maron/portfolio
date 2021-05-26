@@ -7,7 +7,6 @@ import AppsIcon from "@material-ui/icons/Apps";
 import BuildIcon from "@material-ui/icons/Build";
 import EmailIcon from "@material-ui/icons/Email";
 
-import { lightGreen } from "@material-ui/core/colors";
 import { Link, scroller } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
@@ -25,25 +24,28 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.getContrastText(theme.palette.primary.main),
     },
     "& .Mui-selected": {
-      color: lightGreen[500],
+      // color: lightGreen[500],
+      color: theme.palette.secondary.main,
     },
   },
 }));
 
 export default function LabelBottomNavigation() {
   const classes = useStyles();
-  const [value, setValue] = React.useState();
+  const [navValue, setNavValue] = React.useState();
   //   スクロールメソッド時に不要なイベント発火を制御
   const [doneScroll, setDoneScroll] = React.useState(false);
 
+  // ボトムナビゲーションをクリック時に選択値をセットする
   const handleChange = (event, newValue) => {
-    setValue(newValue);
+    setNavValue(newValue);
   };
 
+  //
   const handleActive = (activeName) => {
-    if (doneScroll === false) {
-      setValue(activeName);
-    } else if (doneScroll === true && value === activeName) {
+    if (!doneScroll) {
+      setNavValue(activeName);
+    } else if (doneScroll && navValue === activeName) {
       setDoneScroll(false);
     }
   };
@@ -55,13 +57,19 @@ export default function LabelBottomNavigation() {
 
   return (
     <BottomNavigation
-      value={value}
+      value={navValue}
       onChange={handleChange}
       className={classes.root}
     >
       <BottomNavigationAction
         label={
-          <Link to="About" spy={true} onSetActive={() => handleActive("About")}>
+          <Link
+            to="About"
+            spy={true}
+            smooth={true}
+            duration={500}
+            onSetActive={() => handleActive("About")}
+          >
             About
           </Link>
         }
@@ -71,7 +79,13 @@ export default function LabelBottomNavigation() {
       />
       <BottomNavigationAction
         label={
-          <Link to="Works" spy={true} onSetActive={() => handleActive("Works")}>
+          <Link
+            to="Works"
+            spy={true}
+            smooth={true}
+            duration={500}
+            onSetActive={() => handleActive("Works")}
+          >
             Works
           </Link>
         }
@@ -81,7 +95,13 @@ export default function LabelBottomNavigation() {
       />
       <BottomNavigationAction
         label={
-          <Link to="Skill" spy={true} onSetActive={() => handleActive("Skill")}>
+          <Link
+            to="Skill"
+            spy={true}
+            smooth={true}
+            duration={500}
+            onSetActive={() => handleActive("Skill")}
+          >
             Skill
           </Link>
         }
@@ -94,6 +114,8 @@ export default function LabelBottomNavigation() {
           <Link
             to="Contact"
             spy={true}
+            smooth={true}
+            duration={500}
             onSetActive={() => handleActive("Contact")}
           >
             Contact
