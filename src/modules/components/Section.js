@@ -3,14 +3,15 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme, props) => ({
   box: {
     paddingTop: "14vh",
     paddingBottom: "13vh",
-    // minHeight: "550px",
+    minHeight: (props) => (props.minHeight ? props.minHeight : "550px"),
+    // minHeight: props.minHeight,
     // minHeight: "100vh",
-    height: "100vh",
-    maxHeight: "1100px",
+    // height: "100vh",
+    // maxHeight: "1100px",
     // display: "flex",
     // alignItems: "center",
     // flexWrap: "wrap",
@@ -26,7 +27,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 const Section = React.forwardRef((props, ref) => {
-  const classes = useStyles();
+  const classes = useStyles(props);
   return (
     <Box
       ref={ref}

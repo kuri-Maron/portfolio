@@ -43,7 +43,7 @@ function App() {
       <Section sectionName="Skill" isBlack>
         <Skill />
       </Section>
-      <Section sectionName="Contact">
+      <Section sectionName="Contact" minHeight="100vh">
         <Contact />
       </Section>
       {/* </Container> */}
