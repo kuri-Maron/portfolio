@@ -7,8 +7,10 @@ const useStyles = makeStyles((theme) => ({
   box: {
     paddingTop: "14vh",
     paddingBottom: "13vh",
-    minHeight: "550px",
+    // minHeight: "550px",
     // minHeight: "100vh",
+    height: "100vh",
+    maxHeight: "1100px",
     // display: "flex",
     // alignItems: "center",
     // flexWrap: "wrap",
