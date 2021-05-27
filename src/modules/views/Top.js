@@ -48,6 +48,7 @@ const Top = () => {
   const classes = useStyle();
   return (
     <Box className={classes.top}>
+      <p>{window.innerHeight}</p>
       <Slide direction="down" in={true} timeout={1000}>
         <p className={classes.topText}>Shun Kurihara's portfolio</p>
       </Slide>

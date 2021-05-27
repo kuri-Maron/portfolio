@@ -43,6 +43,7 @@ export default function LabelBottomNavigation() {
 
   // マウススクロールによる画面表示にアクティブにする
   const handleActive = (activeName) => {
+    console.log(`arg: ${activeName}, navState: ${navValue}`);
     if (!doneScroll) {
       setNavValue(activeName);
     } else if (doneScroll && navValue === activeName) {
