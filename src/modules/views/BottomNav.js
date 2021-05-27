@@ -41,7 +41,7 @@ export default function LabelBottomNavigation() {
     setNavValue(newValue);
   };
 
-  //
+  // マウススクロールによる画面表示にアクティブにする
   const handleActive = (activeName) => {
     if (!doneScroll) {
       setNavValue(activeName);
@@ -50,9 +50,16 @@ export default function LabelBottomNavigation() {
     }
   };
 
+  // 対象要素までスクロール
   const scrollTo = (targetID) => {
     setDoneScroll(true);
     scroller.scrollTo(targetID, { duration: 500, smooth: true });
+  };
+
+  // ナビの選択値をセットし、スクロールの挙動を制御
+  const clickActive = (activeName) => {
+    setDoneScroll(true);
+    setNavValue(activeName);
   };
 
   return (
@@ -69,6 +76,7 @@ export default function LabelBottomNavigation() {
             smooth={true}
             duration={500}
             onSetActive={() => handleActive("About")}
+            onClick={() => clickActive("About")} // スクロール状態のtrueとナビ状態の値をセットする2つが必要
           >
             About
           </Link>
@@ -85,6 +93,7 @@ export default function LabelBottomNavigation() {
             smooth={true}
             duration={500}
             onSetActive={() => handleActive("Works")}
+            onClick={() => clickActive("Works")}
           >
             Works
           </Link>
@@ -101,6 +110,7 @@ export default function LabelBottomNavigation() {
             smooth={true}
             duration={500}
             onSetActive={() => handleActive("Skill")}
+            onClick={() => clickActive("Skill")}
           >
             Skill
           </Link>
@@ -117,6 +127,7 @@ export default function LabelBottomNavigation() {
             smooth={true}
             duration={500}
             onSetActive={() => handleActive("Contact")}
+            onClick={() => clickActive("Contact")}
           >
             Contact
           </Link>
