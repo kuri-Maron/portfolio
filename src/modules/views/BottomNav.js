@@ -6,6 +6,7 @@ import PersonIcon from "@material-ui/icons/Person";
 import AppsIcon from "@material-ui/icons/Apps";
 import BuildIcon from "@material-ui/icons/Build";
 import EmailIcon from "@material-ui/icons/Email";
+import * as sectionName from "../SectionNameConstants";
 
 import { Link, scroller } from "react-scroll";
 
@@ -43,7 +44,6 @@ export default function LabelBottomNavigation() {
 
   // マウススクロールによる画面表示にアクティブにする
   const handleActive = (activeName) => {
-    console.log(`arg: ${activeName}, navState: ${navValue}`);
     if (!doneScroll) {
       setNavValue(activeName);
     } else if (doneScroll && navValue === activeName) {
@@ -72,70 +72,70 @@ export default function LabelBottomNavigation() {
       <BottomNavigationAction
         label={
           <Link
-            to="About"
+            to={sectionName.ABOUT}
             spy={true}
             smooth={true}
             duration={500}
-            onSetActive={() => handleActive("About")}
-            onClick={() => clickActive("About")} // スクロール状態のtrueとナビ状態の値をセットする2つが必要
+            onSetActive={() => handleActive(sectionName.ABOUT)}
+            onClick={() => clickActive(sectionName.ABOUT)}
           >
             About
           </Link>
         }
-        value="About"
+        value={sectionName.ABOUT}
         icon={<PersonIcon />}
-        onClick={() => scrollTo("About")}
+        onClick={() => scrollTo(sectionName.ABOUT)}
       />
       <BottomNavigationAction
         label={
           <Link
-            to="Works"
+            to={sectionName.WORKS}
             spy={true}
             smooth={true}
             duration={500}
-            onSetActive={() => handleActive("Works")}
-            onClick={() => clickActive("Works")}
+            onSetActive={() => handleActive(sectionName.WORKS)}
+            onClick={() => clickActive(sectionName.WORKS)}
           >
             Works
           </Link>
         }
-        value="Works"
+        value={sectionName.WORKS}
         icon={<AppsIcon />}
-        onClick={() => scrollTo("Works")}
+        onClick={() => scrollTo(sectionName.WORKS)}
       />
       <BottomNavigationAction
         label={
           <Link
-            to="Skill"
+            to={sectionName.SKILL}
             spy={true}
             smooth={true}
             duration={500}
-            onSetActive={() => handleActive("Skill")}
-            onClick={() => clickActive("Skill")}
+            onSetActive={() => handleActive(sectionName.SKILL)}
+            onClick={() => clickActive(sectionName.SKILL)}
           >
             Skill
           </Link>
         }
-        value="Skill"
+        value={sectionName.SKILL}
         icon={<BuildIcon />}
-        onClick={() => scrollTo("Skill")}
+        onClick={() => scrollTo(sectionName.SKILL)}
       />
       <BottomNavigationAction
         label={
           <Link
-            to="Contact"
+            to={sectionName.CONTACT}
             spy={true}
             smooth={true}
             duration={500}
-            onSetActive={() => handleActive("Contact")}
-            onClick={() => clickActive("Contact")}
+            onSetActive={() => handleActive(sectionName.CONTACT)}
+            onClick={() => clickActive(sectionName.CONTACT)}
           >
             Contact
           </Link>
         }
-        value="Contact"
+        value={sectionName.CONTACT}
         icon={<EmailIcon />}
-        onClick={() => scrollTo("Contact")}
+        onClick={() => scrollTo(sectionName.CONTACT)}
       />
     </BottomNavigation>
   );
