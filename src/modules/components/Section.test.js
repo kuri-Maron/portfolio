@@ -12,5 +12,5 @@ it("セクションネームと子要素のレンダリングをテスト", () =
   expect(
     screen.getByRole("heading", { name: /testcomp/i })
   ).toBeInTheDocument();
-  expect(screen.getByText(/children element./i)).toBeInTheDocument();
+  expect(screen.getByText(/XXXchildren element./i)).toBeInTheDocument();
 });
