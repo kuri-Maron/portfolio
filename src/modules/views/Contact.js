@@ -77,6 +77,7 @@ const Contact = () => {
               label="名前 *"
               error={Boolean(errors.name)}
               helperText={errors.name && errors.name.message}
+              id="name"
             />
           )}
           name="name"
@@ -100,6 +101,7 @@ const Contact = () => {
               label="E-mail *"
               error={Boolean(errors.email)}
               helperText={errors.email && errors.email.message}
+              id="email"
             />
           )}
           name="email"
@@ -118,6 +120,7 @@ const Contact = () => {
               rows="5"
               error={Boolean(errors.contents)}
               helperText={errors.contents && errors.contents.message}
+              id="contents"
             />
           )}
           name="contents"
