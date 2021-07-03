@@ -36,7 +36,8 @@ const Contact = () => {
   const onSubmit = async (data) => {
     // TODO: メール送信APIのテストしたい
     const response = await fetch(
-      "https://nfmtngds29.execute-api.ap-northeast-1.amazonaws.com/dev",
+      // "https://nfmtngds29.execute-api.ap-northeast-1.amazonaws.com/dev",
+      "https://5ktyjhivhl.execute-api.ap-northeast-1.amazonaws.com/dev",
       {
         method: "POST",
         body: JSON.stringify(data),
