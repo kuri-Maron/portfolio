@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     volumes:
       - ./:/usr/src/app
+      - $HOME/.aws/:/root/.aws/
     command: sh -c "yarn start"
     # command: sh -c "cd portfolio-site && yarn start"
     ports:
