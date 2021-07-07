@@ -1,8 +1,14 @@
 import { Container, Grid } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
+import Amplify, { API } from "aws-amplify";
+// import awsExports from "./aws-exports";
+import awsExports from "../../aws-exports";
+
 import imgPortfolioSite from "../../assets/portfolioSite.png";
 
 import CardApp from "../components/CardApp";
+
+Amplify.configure(awsExports);
 
 const cardInfo = {
   cardName: "ポートフォリオサイト",
@@ -15,6 +21,19 @@ const cardInfo = {
 };
 
 const Works = () => {
+  const fetchCardData = async () => {
+    try {
+      const itemData = await API.get("apiWorks", "/works/CardData");
+      console.log(itemData);
+    } catch (err) {
+      console.log("error fetching items");
+      console.log(err);
+    }
+  };
+
+  useEffect(() => {
+    fetchCardData();
+  }, []);
   return (
     <Container maxWidth="lg">
       <Grid container spacing={3}>
