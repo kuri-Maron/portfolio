@@ -1,7 +1,7 @@
-import { createMuiTheme, responsiveFontSizes } from "@material-ui/core/styles";
+import { createTheme, responsiveFontSizes } from "@material-ui/core/styles";
 import { green, grey } from "@material-ui/core/colors";
 
-const rawTheme = createMuiTheme({
+const rawTheme = createTheme({
   palette: {
     primary: {
       main: grey[900],
