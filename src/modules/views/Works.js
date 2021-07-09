@@ -46,6 +46,7 @@ const Works = () => {
 
   // レンダリング関数： api取得したデータの数だけ、カードを表示
   const displayCards = () => {
+    // TODO: データのバリデーションはどこで実施すべきか？
     return cardData.map((data) => {
       return (
         <Grid item xs={12} sm={6} key={data.cardName}>
