@@ -30,6 +30,7 @@ const CardApp = (props) => {
       >
         <CardMedia
           component="img"
+          height="250"
           alt="サイトのイメージ画像"
           image={props.img}
           title={props.cardName}
