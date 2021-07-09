@@ -3,6 +3,10 @@
     "dynamoWorks": {
       "service": "DynamoDB",
       "providerPlugin": "awscloudformation"
+    },
+    "workImage": {
+      "service": "S3",
+      "providerPlugin": "awscloudformation"
     }
   },
   "function": {
