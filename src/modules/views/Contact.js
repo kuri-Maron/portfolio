@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Container, TextField } from "@material-ui/core";
+import { Button, Container, TextField, Link } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
 import FormSnackbar from "../components/FormSnackbar";
 
@@ -12,7 +12,6 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   submitButton: {
-    // color: theme.palette.getContrastText(theme.palette.secondary.main),
     marginTop: theme.spacing(2),
   },
 }));
@@ -33,10 +32,10 @@ const Contact = () => {
   // スナックバーの開閉フラグ
   const [openSnackbar, setOpenSbackbar] = useState(false);
   const isResponseSuccessful = useRef(false);
+
+  // フォーム送信
   const onSubmit = async (data) => {
-    // TODO: メール送信APIのテストしたい
     const response = await fetch(
-      // "https://nfmtngds29.execute-api.ap-northeast-1.amazonaws.com/dev",
       "https://5ktyjhivhl.execute-api.ap-northeast-1.amazonaws.com/dev",
       {
         method: "POST",
@@ -47,6 +46,7 @@ const Contact = () => {
     else alert("メール送信に失敗しました。");
   };
 
+  // スナックバーを非表示
   const handleClose = () => {
     setOpenSbackbar(false);
   };
@@ -65,7 +65,15 @@ const Contact = () => {
       <p>
         何かありましたら、ご気軽にご連絡ください。
         <br />
-        twitterでもご連絡お待ちしています。
+        <Link
+          href="https://twitter.com/kurimaron7K"
+          color="secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          twitter
+        </Link>
+        でもご連絡お待ちしています。
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)}>

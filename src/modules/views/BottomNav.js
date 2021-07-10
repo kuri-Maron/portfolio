@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import BottomNavigation from "@material-ui/core/BottomNavigation";
-import BottomNavigationAction from "@material-ui/core/BottomNavigationAction";
+import { BottomNavigation, BottomNavigationAction } from "@material-ui/core";
 import PersonIcon from "@material-ui/icons/Person";
 import AppsIcon from "@material-ui/icons/Apps";
 import BuildIcon from "@material-ui/icons/Build";
@@ -11,9 +10,7 @@ import * as sectionName from "../SectionNameConstants";
 import { Link, scroller } from "react-scroll";
 
 const useStyles = makeStyles((theme) => ({
-  test: { width: "100%", position: "fixed", bottom: 0 },
   root: {
-    // flexGrow: 1,
     width: "100%",
     position: "fixed",
     bottom: 0,
@@ -25,7 +22,6 @@ const useStyles = makeStyles((theme) => ({
       color: theme.palette.getContrastText(theme.palette.primary.main),
     },
     "& .Mui-selected": {
-      // color: lightGreen[500],
       color: theme.palette.secondary.main,
     },
   },
@@ -42,10 +38,11 @@ export default function LabelBottomNavigation() {
     setNavValue(newValue);
   };
 
-  // マウススクロールによる画面表示にアクティブにする
+  // マウススクロールによる画面表示でアクティブにする
   const handleActive = (activeName) => {
     if (!doneScroll) {
       setNavValue(activeName);
+      // メニュークリックによる動作を制御
     } else if (doneScroll && navValue === activeName) {
       setDoneScroll(false);
     }
@@ -79,7 +76,7 @@ export default function LabelBottomNavigation() {
             onSetActive={() => handleActive(sectionName.ABOUT)}
             onClick={() => clickActive(sectionName.ABOUT)}
           >
-            About
+            {sectionName.ABOUT}
           </Link>
         }
         value={sectionName.ABOUT}
@@ -96,7 +93,7 @@ export default function LabelBottomNavigation() {
             onSetActive={() => handleActive(sectionName.WORKS)}
             onClick={() => clickActive(sectionName.WORKS)}
           >
-            Works
+            {sectionName.WORKS}
           </Link>
         }
         value={sectionName.WORKS}
@@ -113,7 +110,7 @@ export default function LabelBottomNavigation() {
             onSetActive={() => handleActive(sectionName.SKILL)}
             onClick={() => clickActive(sectionName.SKILL)}
           >
-            Skill
+            {sectionName.SKILL}
           </Link>
         }
         value={sectionName.SKILL}
@@ -130,7 +127,7 @@ export default function LabelBottomNavigation() {
             onSetActive={() => handleActive(sectionName.CONTACT)}
             onClick={() => clickActive(sectionName.CONTACT)}
           >
-            Contact
+            {sectionName.CONTACT}
           </Link>
         }
         value={sectionName.CONTACT}

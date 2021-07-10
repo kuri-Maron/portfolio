@@ -2,16 +2,14 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { AppBar, Toolbar, Typography } from "@material-ui/core";
 import { Link } from "react-scroll";
+import * as sectionName from "../SectionNameConstants";
 
 const useStyles = makeStyles((theme) => ({
   appBar: {
     borderBottom: "solid",
     borderBottomColor: theme.palette.secondary.main,
-    // borderBottomColor: lightGreen[500],
   },
   toolbar: {
-    // justifyContent: "space-between",
-    // justifyContent: "space-around",
     justifyContent: "space-evenly",
   },
 
@@ -32,55 +30,58 @@ const useStyles = makeStyles((theme) => ({
 const CustomAppBar = (props) => {
   const classes = useStyles();
   return (
-    // TODO: Linkの遷移で位置がずれるのに対策するなら、toolbarと同じスタイル(自分でスタイル上書きしたほうが簡単)の空のdivを入れる
     <AppBar position="fixed" color="primary" className={classes.appBar}>
       <Toolbar className={classes.toolbar}>
+        {/* TODO: まとめれるporpsはまとめたい */}
         <Link
           activeClass={classes.active}
-          to="About"
+          to={sectionName.ABOUT}
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
         >
           <Typography variant="h6" className={classes.barText}>
-            About
+            {sectionName.ABOUT}
           </Typography>
         </Link>
+
         <Link
           activeClass={classes.active}
-          to="Works"
+          to={sectionName.WORKS}
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
         >
           <Typography variant="h6" className={classes.barText}>
-            Works
+            {sectionName.WORKS}
           </Typography>
         </Link>
+
         <Link
           activeClass={classes.active}
-          to="Skill"
+          to={sectionName.SKILL}
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
         >
           <Typography variant="h6" className={classes.barText}>
-            Skill
+            {sectionName.SKILL}
           </Typography>
         </Link>
+
         <Link
           activeClass={classes.active}
-          to="Contact"
+          to={sectionName.CONTACT}
           spy={true}
           smooth={true}
           offset={-50}
           duration={500}
         >
           <Typography variant="h6" className={classes.barText}>
-            Contact
+            {sectionName.CONTACT}
           </Typography>
         </Link>
       </Toolbar>

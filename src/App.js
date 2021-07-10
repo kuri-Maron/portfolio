@@ -1,17 +1,19 @@
+// cssファイルは、'styled-components'で代替可能ぽい
 import "./App.css";
 import withRoot from "./modules/withRoot";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Hidden } from "@material-ui/core";
-import Top from "./modules/views/Top";
-import Section from "./modules/components/Section";
-import AppBar from "./modules/views/AppBar";
-import BottomNavigation from "./modules/views/BottomNav";
 
+import Top from "./modules/views/Top";
 import About from "./modules/views/About";
 import Works from "./modules/views/Works";
 import Skill from "./modules/views/Skill";
 import Contact from "./modules/views/Contact";
+import Section from "./modules/components/Section";
+import AppBar from "./modules/views/AppBar";
+import BottomNavigation from "./modules/views/BottomNav";
+import * as sectionName from "./modules/SectionNameConstants";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -30,23 +32,20 @@ function App() {
       <Hidden mdUp>
         <BottomNavigation />
       </Hidden>
-      {/* <Container style={bgcColor}> */}
-      {/* <Container disableGutters mx={100} style={{ backgroundColor: "yellow" }}> */}
       <Top />
       {/* TODO: HOCで実装したい */}
-      <Section sectionName="About" isBlack>
+      <Section sectionName={sectionName.ABOUT} isBlack>
         <About />
       </Section>
-      <Section sectionName="Works">
+      <Section sectionName={sectionName.WORKS}>
         <Works />
       </Section>
-      <Section sectionName="Skill" isBlack>
+      <Section sectionName={sectionName.SKILL} isBlack>
         <Skill />
       </Section>
-      <Section sectionName="Contact" minHeight="100vh">
+      <Section sectionName={sectionName.CONTACT} minHeight="100vh">
         <Contact />
       </Section>
-      {/* </Container> */}
     </div>
   );
 }

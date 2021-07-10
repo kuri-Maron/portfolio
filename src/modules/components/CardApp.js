@@ -10,7 +10,6 @@ import {
   Divider,
 } from "@material-ui/core";
 import React from "react";
-
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 const useStyles = makeStyles((theme) => ({
@@ -65,7 +64,6 @@ const CardApp = (props) => {
         >
           GitHub
         </Button>
-        {/* <Button size="small">Learn More</Button> */}
       </CardActions>
     </Card>
   );

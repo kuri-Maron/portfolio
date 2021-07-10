@@ -18,16 +18,14 @@ it("テキストとクリック時のリンク先のテスト", () => {
   // カードに必要な文言が表示されているか
   expect(
     screen.getByRole("link", {
-      name:
-        "サイトのイメージ画像 testCardName testカード説明テキスト Test/C/Java",
+      name: "サイトのイメージ画像 testCardName testカード説明テキスト Test/C/Java",
     })
   ).toBeInTheDocument();
 
   //  カードに意図したリンク先URLが設定されているか
   expect(
     screen.getByRole("link", {
-      name:
-        "サイトのイメージ画像 testCardName testカード説明テキスト Test/C/Java",
+      name: "サイトのイメージ画像 testCardName testカード説明テキスト Test/C/Java",
     })
   ).toHaveAttribute("href", "https://www.google.com/?hl=ja");
 

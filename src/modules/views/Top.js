@@ -1,7 +1,6 @@
-import { Box, Slide } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import "./Top.css";
+import { Box, Slide } from "@material-ui/core";
 
 import imgBlackCat from "../../assets/blackCat_noneTail.png";
 import { Stage } from "@inlet/react-pixi";
@@ -32,8 +31,6 @@ const useStyle = makeStyles((theme) => ({
   },
   catBox: {
     position: "absolute",
-    // right: "10vw", // ディスプレイによっては、横幅が100%超えてしまう
-    // right: "150px", // スマホだと、論理解像度とかの影響で意図しない挙動になる？
     right: "25%",
     bottom: "5vh",
   },

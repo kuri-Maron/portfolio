@@ -10,6 +10,7 @@ describe("Contact", () => {
       return {};
     },
   });
+  // fetch APIのモック
   let mockFetch;
 
   beforeEach(() => {
@@ -37,7 +38,7 @@ describe("Contact", () => {
   it("validation:「名前」項目の最大文字数のエラー", async () => {
     fireEvent.input(screen.getByRole("textbox", { name: "名前 *" }), {
       target: {
-        value: "123456789X123456789X123",
+        value: "123456789X123456789X1",
       },
     });
 
@@ -107,8 +108,3 @@ contents`,
     // TODO: スナックバーが時間経過で非表示になるロジックまで検証できるとよい
   });
 });
-
-// 状態を確認できる便利なメソッド
-//   screen.debug();
-// screen.getByRole("");
-//   screen.getByLabelText("");

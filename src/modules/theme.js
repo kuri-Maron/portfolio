@@ -7,7 +7,6 @@ const rawTheme = createTheme({
       main: grey[900],
     },
     secondary: {
-      // main: lightGreen[500],
       main: green[800],
     },
     divider: "rgba(128, 128, 128, 0.7)",
