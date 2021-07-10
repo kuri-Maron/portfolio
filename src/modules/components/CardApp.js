@@ -16,12 +16,15 @@ const useStyles = makeStyles((theme) => ({
   button: {
     textTransform: "none",
   },
+  card: {
+    margin: "10px 20px",
+  },
 }));
 
 const CardApp = (props) => {
   const classes = useStyles();
   return (
-    <Card>
+    <Card className={classes.card} raised>
       <CardActionArea
         href={props.appURL}
         target="_blank"
