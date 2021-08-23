@@ -23,6 +23,15 @@ React と AWS の学習のアウトプットとして作りました。
   - API Gateway / Lambda
   - Pinpoint
 
+### Amplify の用途
+
+- フロントエンド
+  - ホスティング
+  - CI/CD
+- バックエンド
+  - DB
+  - API
+
 ## 機能一覧
 
 - メニューテキストのクリックで画面遷移
