@@ -3,22 +3,22 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles((theme, props) => ({
   box: {
     paddingTop: "14vh",
     paddingBottom: "13vh",
+    minHeight: (props) => (props.minHeight ? props.minHeight : "550px"),
   },
   topic: {
-    // textDecoration: "underline white",
     textDecoration: "underline",
-    marginBottom: "10vh",
+    paddingBottom: "60px",
     display: "flex",
     justifyContent: "center",
   },
 }));
 
 const Section = React.forwardRef((props, ref) => {
-  const classes = useStyles();
+  const classes = useStyles(props);
   return (
     <Box
       ref={ref}

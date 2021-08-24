@@ -1,7 +1,6 @@
-import { Box, Slide } from "@material-ui/core";
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-// import "./Top.css";
+import { Box, Slide } from "@material-ui/core";
 
 import imgBlackCat from "../../assets/blackCat_noneTail.png";
 import { Stage } from "@inlet/react-pixi";
@@ -22,7 +21,7 @@ const useStyle = makeStyles((theme) => ({
   },
   topText: {
     fontSize: "4vw",
-    animation: `$bound 0.8s 1s 1.5`,
+    animation: `$bound 0.8s 1100ms 1.5`,
   },
   "@keyframes bound": {
     "0%,100%": { transform: "translateY(0) scale(1)" },
@@ -32,7 +31,7 @@ const useStyle = makeStyles((theme) => ({
   },
   catBox: {
     position: "absolute",
-    right: "10vw",
+    right: "25%",
     bottom: "5vh",
   },
   blackCatTail: {

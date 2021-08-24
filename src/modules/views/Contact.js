@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import { Button, Container, TextField } from "@material-ui/core";
+import { Button, Container, TextField, Link } from "@material-ui/core";
 import { Controller, useForm } from "react-hook-form";
-// import FormSnackbar from "../components/FormSackBar";
 import FormSnackbar from "../components/FormSnackbar";
 
 const useStyle = makeStyles((theme) => ({
@@ -13,13 +12,12 @@ const useStyle = makeStyles((theme) => ({
     },
   },
   submitButton: {
-    // color: theme.palette.getContrastText(theme.palette.secondary.main),
     marginTop: theme.spacing(2),
   },
 }));
 
 // フォームの初期値
-const defaultValues = { name: "", Email: "", contents: "" };
+const defaultValues = { name: "", email: "", contents: "" };
 
 const Contact = () => {
   const classes = useStyle();
@@ -33,21 +31,32 @@ const Contact = () => {
 
   // スナックバーの開閉フラグ
   const [openSnackbar, setOpenSbackbar] = useState(false);
+  const isResponseSuccessful = useRef(false);
 
-  const onSubmit = (date) => {
-    // TODO: メール送信APIを作成して、非同期通信処理を実装する。（テストもしたい）
-    console.log(date);
+  // フォーム送信
+  const onSubmit = async (data) => {
+    const response = await fetch(
+      "https://5ktyjhivhl.execute-api.ap-northeast-1.amazonaws.com/dev",
+      {
+        method: "POST",
+        body: JSON.stringify(data),
+      }
+    );
+    if (response.ok) isResponseSuccessful.current = true;
+    else alert("メール送信に失敗しました。");
   };
 
+  // スナックバーを非表示
   const handleClose = () => {
     setOpenSbackbar(false);
   };
 
   useEffect(() => {
     // フォーム送信が成功したら、リセットしてスナックバー表示
-    if (formState.isSubmitSuccessful) {
-      reset();
+    if (formState.isSubmitSuccessful && isResponseSuccessful.current) {
       setOpenSbackbar(true);
+      reset();
+      isResponseSuccessful.current = false;
     }
   }, [formState, reset]);
 
@@ -56,7 +65,15 @@ const Contact = () => {
       <p>
         何かありましたら、ご気軽にご連絡ください。
         <br />
-        twitterでもご連絡お待ちしています。
+        <Link
+          href="https://twitter.com/kurimaron7K"
+          color="secondary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          twitter
+        </Link>
+        でもご連絡お待ちしています。
       </p>
 
       <form onSubmit={handleSubmit(onSubmit)}>
@@ -69,6 +86,7 @@ const Contact = () => {
               label="名前 *"
               error={Boolean(errors.name)}
               helperText={errors.name && errors.name.message}
+              id="name"
             />
           )}
           name="name"
@@ -90,11 +108,12 @@ const Contact = () => {
               fullWidth
               variant="filled"
               label="E-mail *"
-              error={Boolean(errors.Email)}
-              helperText={errors.Email && errors.Email.message}
+              error={Boolean(errors.email)}
+              helperText={errors.email && errors.email.message}
+              id="email"
             />
           )}
-          name="Email"
+          name="email"
           control={control}
           rules={{ required: "必須入力です。" }}
         />
@@ -110,6 +129,7 @@ const Contact = () => {
               rows="5"
               error={Boolean(errors.contents)}
               helperText={errors.contents && errors.contents.message}
+              id="contents"
             />
           )}
           name="contents"
@@ -132,7 +152,11 @@ const Contact = () => {
           送信
         </Button>
       </form>
-      <FormSnackbar open={Boolean(openSnackbar)} handleClose={handleClose} />
+      <FormSnackbar
+        open={Boolean(openSnackbar)}
+        handleClose={handleClose}
+        message={"送信完了しました。"}
+      />
     </Container>
   );
 };

@@ -10,24 +10,31 @@ import {
   Divider,
 } from "@material-ui/core";
 import React from "react";
-
 import GitHubIcon from "@material-ui/icons/GitHub";
 
 const useStyles = makeStyles((theme) => ({
   button: {
     textTransform: "none",
   },
+  card: {
+    margin: "10px 20px",
+  },
 }));
 
 const CardApp = (props) => {
   const classes = useStyles();
   return (
-    <Card>
-      <CardActionArea href="https://www.notion.so/with-React-de12ff2d00204347ace5bc15ab943c22">
+    <Card className={classes.card} raised>
+      <CardActionArea
+        href={props.appURL}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         <CardMedia
           component="img"
+          height="250"
           alt="サイトのイメージ画像"
-          image={props.imgPortfolioSite}
+          image={props.img}
           title={props.cardName}
         />
         <Divider />
@@ -54,13 +61,12 @@ const CardApp = (props) => {
           color="secondary"
           startIcon={<GitHubIcon />}
           className={classes.button}
-          href="https://github.com/kuri-Maron/portfolio"
+          href={props.githubURL}
           target="_blank"
           rel="noopener noreferrer"
         >
           GitHub
         </Button>
-        {/* <Button size="small">Learn More</Button> */}
       </CardActions>
     </Card>
   );

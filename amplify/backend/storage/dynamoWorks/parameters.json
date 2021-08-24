@@ -1,0 +1,7 @@
+{
+    "tableName": "Works",
+    "partitionKeyName": "Category",
+    "partitionKeyType": "S",
+    "sortKeyName": "cardName",
+    "sortKeyType": "S"
+}

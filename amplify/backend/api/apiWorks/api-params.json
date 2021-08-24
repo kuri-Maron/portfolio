@@ -1,0 +1,45 @@
+{
+  "paths": [
+    {
+      "name": "/works",
+      "lambdaFunction": "portfolioWorksCRUD",
+      "privacy": {
+        "protected": true,
+        "auth": [
+          "/POST",
+          "/GET",
+          "/PUT",
+          "/PATCH",
+          "/DELETE"
+        ],
+        "unauth": [
+          "/GET"
+        ]
+      },
+      "policyResourceName": "/works"
+    }
+  ],
+  "resourceName": "apiWorks",
+  "apiName": "apiWorks",
+  "functionArns": [
+    {
+      "lambdaFunction": "portfolioWorksCRUD"
+    }
+  ],
+  "privacy": {
+    "auth": 1,
+    "unauth": 1,
+    "authRoleName": "amplify-portfolio-dev-70539-authRole",
+    "unAuthRoleName": "amplify-portfolio-dev-70539-unauthRole"
+  },
+  "dependsOn": [
+    {
+      "category": "function",
+      "resourceName": "portfolioWorksCRUD",
+      "attributes": [
+        "Name",
+        "Arn"
+      ]
+    }
+  ]
+}

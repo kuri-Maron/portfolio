@@ -21,7 +21,7 @@ const FormSnackbar = (props) => {
         open={props.open}
         autoHideDuration={6000}
         onClose={handleClose}
-        message="送信完了しました。"
+        message={props.message}
         action={
           <React.Fragment>
             <IconButton

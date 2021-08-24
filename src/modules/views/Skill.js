@@ -5,7 +5,6 @@ import { Box, Container } from "@material-ui/core";
 const useStyle = makeStyles((theme) => ({
   column: {
     columnCount: 2,
-    // textAlign: "center",
   },
   li: {
     padding: "5px 0px",
@@ -31,7 +30,6 @@ const Skill = () => {
           <li className={classes.li}>Firebase</li>
           <li className={classes.li}>AWS</li>
           <li className={classes.li}>Docker</li>
-          <li className={classes.li}>GitHub actions</li>
           <li className={classes.li}>JAVA</li>
           <li className={classes.li}>C</li>
         </ul>
