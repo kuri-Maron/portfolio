@@ -1,7 +1,7 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import CardApp from "./CardApp";
-import imgPortfolioSite from "../../assets/portfolioSite.png";
+import imgPortfolioSite from "../../assets/test/portfolioSite.png";
 
 it("テキストとクリック時のリンク先のテスト", () => {
   render(
