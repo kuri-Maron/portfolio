@@ -13,6 +13,7 @@ import Contact from "./modules/views/Contact";
 import Section from "./modules/components/Section";
 import AppBar from "./modules/views/AppBar";
 import BottomNavigation from "./modules/views/BottomNav";
+import Footer from "./modules/views/Footer";
 import * as sectionName from "./modules/SectionNameConstants";
 
 const useStyles = makeStyles((theme) => ({
@@ -46,6 +47,7 @@ function App() {
       <Section sectionName={sectionName.CONTACT} minHeight="100vh">
         <Contact />
       </Section>
+      <Footer />
     </div>
   );
 }
